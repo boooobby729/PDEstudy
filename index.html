@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PxD Lab · 产品思维 × 交互设计学习平台</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 侧边导航 -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <span class="logo-icon">◈</span>
+                <span class="logo-text">PxD Lab</span>
+            </div>
+            <p class="logo-sub">产品 × 交互 学习平台</p>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-item active" data-page="home">
+                <span class="nav-icon">⌂</span>
+                <span class="nav-label">学习首页</span>
+            </li>
+            <li class="nav-item" data-page="product">
+                <span class="nav-icon">◎</span>
+                <span class="nav-label">产品思维</span>
+                <span class="mastery-dots"></span>
+            </li>
+            <li class="nav-item" data-page="interaction">
+                <span class="nav-icon">◇</span>
+                <span class="nav-label">交互设计</span>
+                <span class="mastery-dots"></span>
+            </li>
+            <li class="nav-item" data-page="methodology">
+                <span class="nav-icon">△</span>
+                <span class="nav-label">设计方法论</span>
+                <span class="mastery-dots"></span>
+            </li>
+            <li class="nav-item" data-page="quiz">
+                <span class="nav-icon">✎</span>
+                <span class="nav-label">题库练习</span>
+            </li>
+            <li class="nav-item" data-page="cases">
+                <span class="nav-icon">▣</span>
+                <span class="nav-label">前沿案例</span>
+            </li>
+            <li class="nav-item" data-page="resources">
+                <span class="nav-icon">◆</span>
+                <span class="nav-label">推荐资源</span>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <div class="progress-summary">
+                <span class="progress-label">学习进度</span>
+                <div class="progress-bar-mini">
+                    <div class="progress-fill-mini" id="globalProgress" style="width: 0%"></div>
+                </div>
+                <span class="progress-pct" id="globalProgressText">0%</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 移动端顶部栏 -->
+    <header class="mobile-header" id="mobileHeader">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <span class="mobile-title">PxD Lab</span>
+    </header>
+
+    <!-- 遮罩层 -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- 主内容区 -->
+    <main class="main-content" id="mainContent">
+
+        <!-- ==================== 首页 ==================== -->
+        <section class="page active" id="page-home">
+            <div class="hero">
+                <h1 class="hero-title">成为更懂产品的<br>体验设计师</h1>
+                <p class="hero-desc">系统学习产品思维与交互设计知识，丰富案例与题库练习，补齐能力短板。</p>
+            </div>
+            <div class="stats-row">
+                <div class="stat-card"><span class="stat-num">120+</span><span class="stat-label">知识点</span></div>
+                <div class="stat-card"><span class="stat-num">72</span><span class="stat-label">实战案例</span></div>
+                <div class="stat-card"><span class="stat-num" id="statTotalQuestions">64</span><span class="stat-label">练习题</span></div>
+                <div class="stat-card"><span class="stat-num">12</span><span class="stat-label">精读书籍</span></div>
+            </div>
+
+            <!-- 今日学习计划 -->
+            <div class="today-plan" id="todayPlan">
+                <div class="plan-header">
+                    <h3>今日学习建议</h3>
+                    <span class="plan-badge" id="planBadge">基于你的学习进度</span>
+                </div>
+                <div class="plan-items" id="planItems">
+                    <!-- JS 动态生成 -->
+                </div>
+            </div>
+
+            <h2 class="section-title">学习路径</h2>
+            <div class="path-grid">
+                <div class="path-card" data-target="product">
+                    <div class="path-num">01</div>
+                    <h3>产品思维</h3>
+                    <p>理解产品全貌，建立从用户到商业的完整思考链路</p>
+                    <div class="path-tags"><span class="tag">需求分析</span><span class="tag">增长模型</span><span class="tag">数据思维</span><span class="tag">跨角色沟通</span></div>
+                </div>
+                <div class="path-card" data-target="interaction">
+                    <div class="path-num">02</div>
+                    <h3>交互设计</h3>
+                    <p>掌握交互设计核心理论、设计系统与情感化设计</p>
+                    <div class="path-tags"><span class="tag">可用性原则</span><span class="tag">设计系统</span><span class="tag">无障碍</span><span class="tag">情感化设计</span></div>
+                </div>
+                <div class="path-card" data-target="methodology">
+                    <div class="path-num">03</div>
+                    <h3>设计方法论</h3>
+                    <p>系统化的设计思维、研究方法与增长策略</p>
+                    <div class="path-tags"><span class="tag">用户旅程</span><span class="tag">服务蓝图</span><span class="tag">AARRR</span><span class="tag">OKR</span></div>
+                </div>
+                <div class="path-card" data-target="quiz">
+                    <div class="path-num">04</div>
+                    <h3>题库练习</h3>
+                    <p>60道精选题目，间隔复习强化记忆</p>
+                    <div class="path-tags"><span class="tag">选择题</span><span class="tag">案例分析</span><span class="tag">间隔复习</span></div>
+                </div>
+            </div>
+            <h2 class="section-title">每日一学</h2>
+            <div class="daily-tip" id="dailyTip">
+                <div class="tip-badge">💡 今日知识点</div>
+                <h3 class="tip-title" id="tipTitle"></h3>
+                <p class="tip-content" id="tipContent"></p>
+                <p class="tip-example" id="tipExample"></p>
+            </div>
+
+            <!-- 学习科学理念 -->
+            <h2 class="section-title">学习科学</h2>
+            <div class="learning-science-grid">
+                <div class="ls-card" onclick="navigateTo('quiz'); setTimeout(()=>{ document.querySelector('[data-mode=active-recall]').click(); }, 100)">
+                    <div class="ls-icon">🧠</div>
+                    <h4>主动回忆</h4>
+                    <p>先思考再看答案，比重复阅读记忆效果高 <strong>50%+</strong>（测试效应）</p>
+                    <span class="ls-action">开始练习 →</span>
+                </div>
+                <div class="ls-card" onclick="navigateTo('quiz'); setTimeout(()=>{ document.querySelector('[data-mode=interleaved]').click(); }, 100)">
+                    <div class="ls-icon">🔀</div>
+                    <h4>交错练习</h4>
+                    <p>混合不同类别，打破「假熟悉感」，真正检验迁移能力（交错效应）</p>
+                    <span class="ls-action">开始练习 →</span>
+                </div>
+                <div class="ls-card" onclick="navigateTo('quiz'); setTimeout(()=>{ document.querySelector('[data-mode=review]').click(); }, 100)">
+                    <div class="ls-icon">📅</div>
+                    <h4>间隔复习</h4>
+                    <p>在遗忘边缘复习，每次复习都让记忆更持久（Ebbinghaus 遗忘曲线）</p>
+                    <span class="ls-action">开始复习 →</span>
+                </div>
+                <div class="ls-card" onclick="navigateTo('quiz')">
+                    <div class="ls-icon">✍️</div>
+                    <h4>精细化编码</h4>
+                    <p>用自己的话解释答案，将记忆保留率提升 <strong>40%+</strong>（生成效应）</p>
+                    <span class="ls-action">开始练习 →</span>
+                </div>
+            </div>
+
+            <!-- 记忆状态小组件 -->
+            <div class="memory-widget">
+                <div class="memory-widget-header">
+                    <span>🔄 记忆追踪状态</span>
+                    <button class="btn-link" onclick="navigateTo('quiz')">查看详情</button>
+                </div>
+                <div id="forgettingWidget">
+                    <p class="widget-empty">开始答题后，这里会显示你的记忆状态</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 产品思维 ==================== -->
+        <section class="page" id="page-product">
+            <h1 class="page-title">产品思维</h1>
+            <p class="page-intro">从用户需求到商业价值的完整思考链路。理解产品全貌，做出更有价值的设计决策。</p>
+            <div class="tabs">
+                <button class="tab active" data-tab="prod-basics">产品基础</button>
+                <button class="tab" data-tab="prod-research">需求分析</button>
+                <button class="tab" data-tab="prod-business">商业思维</button>
+                <button class="tab" data-tab="prod-strategy">产品策略</button>
+                <button class="tab" data-tab="prod-growth">用户增长</button>
+                <button class="tab" data-tab="prod-collab">跨角色协作</button>
+            </div>
+
+            <div class="tab-content active" id="tab-prod-basics">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>什么是产品思维</h3><span class="kc-level">入门</span></div>
+                    <div class="kc-body">
+                        <p>产品思维是一种从「用户价值」和「商业价值」双重视角思考问题的方式。它不仅关注"这个设计好不好看"，更关注"为什么要做这个功能"、"用户真正需要什么"、"这个功能能带来什么业务价值"。</p>
+                        <div class="kc-keypoint">
+                            <h4>核心转变：从「执行者」到「思考者」</h4>
+                            <p>不只是接到需求就画图，而是理解需求背后的"为什么"。设计师视角说"这个按钮应该放左边还是右边"，产品思维视角说"用户在这个场景下到底想完成什么任务"。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>设计师 vs 产品经理的思维差异</h4>
+                            <p><strong>设计师常见视角：</strong>这个页面的视觉层次清晰吗？交互流程顺畅吗？动效自然吗？</p>
+                            <p><strong>产品思维补充：</strong>这个功能解决了用户什么痛点？上线后用什么数据衡量成功？如果资源有限，这个功能的优先级如何？它对商业目标有什么贡献？</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：微信「拍一拍」</h4>
+                        <p><strong>表层理解：</strong>一个简单的社交互动小功能。</p>
+                        <p><strong>产品思维分析：</strong>微信作为熟人社交工具，需要不断创造轻量级社交互动来维持用户活跃度。「拍一拍」成本极低（无需键盘输入），降低了社交互动门槛，特别适合"想联系但不知道说什么"的场景。从数据看，它提升了消息发送频次和 DAU。这就是一个"极低开发成本 + 明确用户场景 + 可量化商业价值"的经典产品决策。</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>产品生命周期</h3><span class="kc-level">基础</span></div>
+                    <div class="kc-body">
+                        <p>每个产品都会经历从诞生到成熟的过程，不同阶段的设计关注点完全不同。理解当前阶段，能帮你做出更合适的设计决策。</p>
+                        <div class="lifecycle-stages">
+                            <div class="stage"><div class="stage-marker" style="background:#4ECDC4">启动期</div><p><strong>核心目标：</strong>验证需求是否真实存在</p><p><strong>设计策略：</strong>快速出 MVP，优先验证核心流程能跑通，80%精力放核心功能。</p><p><strong>案例：</strong>美团早期只做团购，页面极简，核心就是"选套餐→下单→到店消费"。</p></div>
+                            <div class="stage"><div class="stage-marker" style="background:#45B7D1">成长期</div><p><strong>核心目标：</strong>快速获客、提升留存</p><p><strong>设计策略：</strong>优化新用户引导、缩短上手时间、打磨核心体验。</p><p><strong>案例：</strong>抖音成长期疯狂优化推荐算法体验，让用户一打开就停不下来。</p></div>
+                            <div class="stage"><div class="stage-marker" style="background:#96CEB4">成熟期</div><p><strong>核心目标：</strong>提升效率、商业变现</p><p><strong>设计策略：</strong>精细化运营，数据驱动优化，每个转化环节精打细算。</p><p><strong>案例：</strong>淘宝"猜你喜欢"千人千面推荐，每 0.1% 转化率提升意味巨大 GMV 增长。</p></div>
+                            <div class="stage"><div class="stage-marker" style="background:#DDA0DD">转型期</div><p><strong>核心目标：</strong>寻找第二曲线</p><p><strong>设计策略：</strong>探索新场景，同时维护存量用户体验。</p><p><strong>案例：</strong>微信从通讯扩展到小程序生态、视频号，持续寻找新增长点。</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-prod-research">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>需求采集与分析方法</h3><span class="kc-level">核心</span></div>
+                    <div class="kc-body">
+                        <p>需求分析是产品思维的基石。设计师不只是"被输入需求"的角色，应该具备独立分析和质疑需求的能力。</p>
+                        <div class="kc-keypoint">
+                            <h4>需求的三个层次</h4>
+                            <p><strong>表层需求（用户说的）：</strong>"我想要一匹更快的马"</p>
+                            <p><strong>真实需求（用户想的）：</strong>"我想更快地到达目的地"</p>
+                            <p><strong>底层动机（本质诉求）：</strong>"我想节省时间/提升效率/获得掌控感"</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>KANO 模型</h4>
+                            <p><strong>基本型需求（Must-be）：</strong>不做用户会很不满，做了不会特别满意。如外卖能看到预计送达时间。</p>
+                            <p><strong>期望型需求（One-dimensional）：</strong>做得越好越满意。如配送速度。</p>
+                            <p><strong>兴奋型需求（Attractive）：</strong>没有不影响，有了很惊喜。如骑手实时位置追踪。</p>
+                            <p><strong>反向需求（Reverse）：</strong>做了反而让用户不满。如强制弹窗广告。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>5 Whys 根因分析法</h4>
+                            <p>连续追问 5 个「为什么」，从表层症状挖到根本原因。</p>
+                            <p><strong>示例：</strong>用户不使用「收藏」功能 → 为什么？找不到入口 → 为什么找不到？图标太小且无标签 → 为什么没标签？设计时认为图标足够通用 → 为什么这么认为？没做过可用性测试 → 根因：缺乏用户验证环节。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：美团外卖「预计送达时间」的演进</h4>
+                        <p><strong>用户核心诉求：</strong>对等待有确定感，好安排自己的时间。</p>
+                        <p><strong>设计演进：</strong>静态预估时间 → 动态倒计时 → 骑手实时位置追踪 → 超时赔付承诺。每一步都在更深层次满足"确定感"需求。</p>
+                        <p><strong>KANO 启示：</strong>当年的"兴奋型需求"（骑手追踪）如今已变成"基本型需求"——用户已习以为常，你必须持续创新。</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>用户画像与场景构建</h3><span class="kc-level">核心</span></div>
+                    <div class="kc-body">
+                        <p>用户画像不是编造虚构人物，而是基于真实数据和调研抽象出的典型用户模型。</p>
+                        <div class="kc-keypoint">
+                            <h4>场景构建公式</h4>
+                            <p><strong>完整场景 = 谁</strong>（用户画像） + <strong>在什么情况下</strong>（上下文） + <strong>想做什么</strong>（目标） + <strong>遇到什么问题</strong>（痛点）</p>
+                            <p>例："小王（26岁上班族）在工作日午休（12点，办公室），想快速点外卖（2分钟内下单），但面对几十家餐厅不知选哪家（选择困难）"。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>Jobs To Be Done (JTBD) 框架</h4>
+                            <p>关注用户「雇佣」产品来完成的「任务」，而非用户是谁。</p>
+                            <p><strong>公式：</strong>当我___（情境），我想要___（动机），这样我就能___（期望结果）。</p>
+                            <p><strong>案例：</strong>"当我早上赶地铁（情境），我想要快速获取新闻摘要（动机），这样我就能在碎片时间了解今天大事（结果）"。——这解释了为什么短资讯App比长文App在通勤场景更受欢迎。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：抖音的「推荐Feed」设计决策</h4>
+                        <p><strong>核心场景：</strong>碎片化时间（等电梯、午休、睡前）想快速获得娱乐。</p>
+                        <p><strong>JTBD分析：</strong>用户雇佣抖音来"杀时间+获得即时满足感"，而非"找特定内容"。</p>
+                        <p><strong>设计决策：</strong>打开即播放，上滑切换，没有列表选择页。直接用算法替用户做选择，最大化"即时满足感"。对比YouTube的列表式首页，抖音更匹配碎片化+被动消费的场景。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-prod-business">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>设计师必懂的数据指标</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <p>数据不是产品经理的专属。理解核心数据指标能帮你证明设计的价值，也能帮你发现设计问题。</p>
+                        <div class="kc-keypoint">
+                            <h4>用户规模指标</h4>
+                            <p><strong>DAU/MAU：</strong>日活/月活。DAU/MAU 比值（粘性）越高说明越依赖。微信接近 0.8，非常高。</p>
+                            <p><strong>留存率：</strong>次日留存、7日留存、30日留存反映产品核心体验质量。拉新不难，留住才难。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>转化漏斗</h4>
+                            <p>用户从"看到"到"完成目标行为"的每步流失率。电商典型漏斗：浏览→加购→下单→支付。每一步流失都是设计可以优化的机会。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>北极星指标 (North Star Metric)</h4>
+                            <p>一个产品最核心的、能反映用户价值和商业价值的单一指标。</p>
+                            <p><strong>Airbnb：</strong>预订间夜数（反映用户真正使用了服务）</p>
+                            <p><strong>Spotify：</strong>每周播放时长（反映用户真正获得了音乐价值）</p>
+                            <p><strong>美团外卖：</strong>完成订单数（反映用户完成了"吃饭"这个核心任务）</p>
+                            <p><strong>设计师如何用：</strong>你的设计改版后，北极星指标有没有变好？这是证明设计价值最有力的方式。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>商业指标</h4>
+                            <p><strong>ARPU（每用户平均收入）</strong>、<strong>LTV（用户生命周期价值）</strong>、<strong>ROI（投资回报率）</strong>、<strong>CAC（获客成本）</strong>。LTV > CAC 才是一个健康的商业模型。设计改版的ROI怎么算？"改版后转化率提升X%，带来额外收入Y万"。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：支付宝首页改版的数据驱动</h4>
+                        <p><strong>问题：</strong>首页功能入口超 20 个，用户找不到想用的功能。</p>
+                        <p><strong>数据发现：</strong>80% 用户只使用 4-5 个高频功能，很多入口点击率极低。</p>
+                        <p><strong>设计方案：</strong>精简为常用功能+智能推荐，低频功能下沉。</p>
+                        <p><strong>数据验证：</strong>核心功能触达效率提升 30%+。</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>商业模式与设计的关系</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <p>理解商业模式能帮你搞清"公司靠什么赚钱"，从而理解设计方向。</p>
+                        <div class="kc-keypoint">
+                            <h4>常见模式速览</h4>
+                            <p><strong>交易佣金型（美团、淘宝）：</strong>设计关注 → 提升交易转化率</p>
+                            <p><strong>广告型（抖音、百度）：</strong>设计关注 → 提升用户时长，平衡体验与广告</p>
+                            <p><strong>订阅型（Netflix）：</strong>设计关注 → 降低退订率，持续提供价值感</p>
+                            <p><strong>增值服务型（QQ音乐）：</strong>设计关注 → 让用户感受免费和付费的体验差距</p>
+                            <p><strong>平台型（微信小程序）：</strong>设计关注 → 降低开发者门槛，提升生态丰富度</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：为什么美团首页经常变？</h4>
+                        <p>美团是交易佣金模型，GMV 是核心指标。首页每个坑位直接影响用户进入某品类的概率。改一个 icon 样式、调一下排列顺序，都可能带来百万级 GMV 变化。理解这个逻辑，你就能理解为什么 PM 对首页"执念"这么深。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-prod-strategy">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>MVP 思维与迭代节奏</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <p>MVP（最小可行产品）不是"做一个很烂的版本"，而是用最小成本验证最核心的假设。</p>
+                        <div class="kc-keypoint">
+                            <h4>MVP 的正确理解</h4>
+                            <p><strong>错误理解：</strong>把产品做得很简陋，功能砍到最少。</p>
+                            <p><strong>正确理解：</strong>找到"用户最想解决的那个问题"，只做这一个问题的完整解决方案。少做，但做好。</p>
+                            <p><strong>设计师视角：</strong>MVP 阶段不需要完美视觉系统，但核心流程的体验必须顺畅。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>MVP 验证的三种形式</h4>
+                            <p><strong>视频 MVP：</strong>Dropbox 用一段演示视频验证了用户对云同步的需求，等待列表从5000涨到75000。</p>
+                            <p><strong>门面 MVP：</strong>Zappos 创始人先拍鞋店照片放网上，有人下单后再去店里买来寄出，验证了"网上买鞋"的需求。</p>
+                            <p><strong>绿野仙踪 MVP：</strong>看起来是自动化系统，实际背后是人工操作。先验证用户是否需要这个服务，再决定是否开发自动化。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：Dropbox 的 MVP 策略</h4>
+                        <p>Drew Houston 没有先做产品，而是录了一段3分钟演示视频。发布后等待列表从5000涨到75000人。MVP 甚至可以不是一个可用的产品，只要能验证"用户到底想不想要"。</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>功能优先级与版本规划</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <div class="kc-keypoint">
+                            <h4>ICE 评分法</h4>
+                            <p><strong>Impact（影响力）：</strong>这个功能上线后影响面多大？</p>
+                            <p><strong>Confidence（信心）：</strong>你有多大把握这个功能会成功？</p>
+                            <p><strong>Ease（容易度）：</strong>实现难度多大？需要多少资源？</p>
+                            <p>三项各打 1-10 分，相乘得出优先级分数，让功能排序有据可依而非拍脑袋。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>RICE 评分法</h4>
+                            <p>比 ICE 更精细的优先级框架，Intercom 提出。</p>
+                            <p><strong>Reach（触达）：</strong>多少用户会受影响？（量化，如每月1万用户）</p>
+                            <p><strong>Impact（影响）：</strong>对每个用户的影响程度？（3=巨大/2=大/1=中/0.5=小/0.25=微小）</p>
+                            <p><strong>Confidence（信心）：</strong>对以上估计的信心？（百分比）</p>
+                            <p><strong>Effort（投入）：</strong>需要多少人月？</p>
+                            <p><strong>公式：</strong>RICE = (Reach × Impact × Confidence) / Effort</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>四象限法则</h4>
+                            <p>用「用户价值」和「商业价值」两个维度画四象限：高用户+高商业 → 优先做；高用户+低商业 → 体验型需求，择机做；低用户+高商业 → 慎重做，别伤体验；低用户+低商业 → 不做。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新增：用户增长 Tab -->
+            <div class="tab-content" id="tab-prod-growth">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>AARRR 增长漏斗（海盗模型）</h3><span class="kc-level">核心</span></div>
+                    <div class="kc-body">
+                        <p>Dave McClure 提出的用户增长分析框架，从获取到变现的完整链路。设计师理解这个模型，就能知道自己的设计在整个增长链条中处于什么位置。</p>
+                        <div class="kc-keypoint">
+                            <h4>五个阶段</h4>
+                            <p><strong>Acquisition（获客）：</strong>用户从哪里来？设计关注：落地页转化率、首屏吸引力、下载/注册引导。</p>
+                            <p><strong>Activation（激活）：</strong>用户第一次获得「啊哈时刻」。设计关注：新手引导流程、首次体验流畅度、减少用户上手门槛。</p>
+                            <p><strong>Retention（留存）：</strong>用户是否持续回来？设计关注：核心功能体验质量、通知策略、习惯养成设计。</p>
+                            <p><strong>Revenue（收入）：</strong>用户是否付费？设计关注：付费转化路径、定价页设计、价值感传达。</p>
+                            <p><strong>Referral（推荐）：</strong>用户是否推荐给别人？设计关注：分享流程顺畅度、邀请奖励机制、社交裂变。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：拼多多的增长飞轮</h4>
+                        <p><strong>Acquisition：</strong>微信社交裂变（砍一刀）让获客成本极低。</p>
+                        <p><strong>Activation：</strong>首次进入即可看到低价商品，啊哈时刻="这么便宜？"</p>
+                        <p><strong>Retention：</strong>每日签到、限时秒杀、多多果园游戏化机制。</p>
+                        <p><strong>Revenue：</strong>低价策略+凑单机制提升客单价。</p>
+                        <p><strong>Referral：</strong>拼团、砍价机制天然带分享，AARRR 形成闭环。</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>啊哈时刻与新手引导</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <p>「啊哈时刻」(Aha Moment) 是用户第一次感受到产品核心价值的那个瞬间。引导用户尽快到达这个时刻，是提升激活率的关键。</p>
+                        <div class="kc-keypoint">
+                            <h4>知名产品的啊哈时刻</h4>
+                            <p><strong>Facebook：</strong>注册后 10 天内添加 7 个好友</p>
+                            <p><strong>Slack：</strong>团队发送 2000 条消息</p>
+                            <p><strong>Dropbox：</strong>在一台设备上传文件，在另一台设备打开</p>
+                            <p><strong>Twitter：</strong>关注 30 个用户</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>新手引导设计原则</h4>
+                            <p><strong>渐进式：</strong>不要一次性教所有功能，先教最核心的一个。</p>
+                            <p><strong>场景化：</strong>在用户需要时出现提示，而非一打开就弹教程。</p>
+                            <p><strong>可跳过：</strong>永远给用户跳过引导的选项——强制引导让人反感。</p>
+                            <p><strong>价值导向：</strong>引导用户到达啊哈时刻，而非只是展示功能列表。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：Notion 的渐进式引导</h4>
+                        <p>Notion 功能极其复杂（笔记/数据库/看板/文档），但新手引导做得很聪明：先提供预制模板让用户直接用，用起来之后再逐步揭示更多能力。不是教你"这是数据库功能"，而是给你一个漂亮的项目管理模板——用起来就自然理解了。</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>游戏化设计与行为设计</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <p>将游戏中的激励机制融入产品设计，提升用户参与度和留存。但要注意：游戏化不是加积分加徽章，而是理解内在动机。</p>
+                        <div class="kc-keypoint">
+                            <h4>八角行为分析框架 (Octalysis)</h4>
+                            <p>Yu-kai Chou 提出的八大核心驱动力：</p>
+                            <p><strong>使命感：</strong>感觉自己在做有意义的事（维基百科的志愿者编辑）</p>
+                            <p><strong>成就感：</strong>进步和掌握的快感（游戏的等级系统、学习App的连续打卡天数）</p>
+                            <p><strong>创造力：</strong>创造和表达的空间（Minecraft、小红书的内容创作）</p>
+                            <p><strong>拥有感：</strong>积累和收集（淘宝购物车、Steam游戏库）</p>
+                            <p><strong>社交影响：</strong>社交互动和比较（微信运动的步数排名）</p>
+                            <p><strong>稀缺性：</strong>限时/限量带来的紧迫感（限时秒杀、限量版）</p>
+                            <p><strong>好奇心：</strong>不确定性和探索欲（盲盒、抖音的推荐算法）</p>
+                            <p><strong>回避心理：</strong>害怕失去（连续签到中断会丢失奖励）</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：多邻国 (Duolingo) 的游戏化设计</h4>
+                        <p><strong>连续天数：</strong>回避心理——不想中断连续记录（有用户连续学习超过3000天）</p>
+                        <p><strong>排行榜联赛：</strong>社交影响——每周和同级别用户竞争，前10名晋级</p>
+                        <p><strong>经验值和等级：</strong>成就感——看到自己在进步</p>
+                        <p><strong>限时加倍：</strong>稀缺性——特定时间段经验值翻倍，制造紧迫感</p>
+                        <p><strong>核心启示：</strong>游戏化的前提是产品本身有价值。多邻国的课程质量才是根基，游戏化只是让用户"坚持下来"的辅助手段。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新增：跨角色协作 Tab -->
+            <div class="tab-content" id="tab-prod-collab">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>设计师如何与产品经理高效协作</h3><span class="kc-level">实战</span></div>
+                    <div class="kc-body">
+                        <p>设计师和产品经理之间的协作质量直接影响产品体验。好的协作不是"你说我做"，而是共同探索最佳方案。</p>
+                        <div class="kc-keypoint">
+                            <h4>需求评审中的高价值提问</h4>
+                            <p><strong>追问目标：</strong>"这个需求想解决用户什么问题？衡量成功的核心指标是什么？"</p>
+                            <p><strong>追问优先级：</strong>"这个功能和XX功能比，优先级怎么排？依据是什么？"</p>
+                            <p><strong>追问边界：</strong>"如果资源只够做一半，哪部分是必须的、哪部分可以砍？"</p>
+                            <p><strong>追问风险：</strong>"这个功能上线后可能有什么副作用？有没有Plan B？"</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>用产品语言汇报设计方案</h4>
+                            <p><strong>不要说：</strong>"我觉得这个方案视觉效果更好"</p>
+                            <p><strong>应该说：</strong>"方案A的信息层级更清晰，根据XX原则/数据，预计能让核心操作的完成率提升X%"</p>
+                            <p><strong>核心：</strong>用数据、原则、用户研究结论来支撑设计决策，而非个人审美偏好。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 实战模板：设计方案汇报结构</h4>
+                        <p><strong>1. 设计目标：</strong>本次改版要解决什么问题？（对齐产品目标）</p>
+                        <p><strong>2. 用户洞察：</strong>通过调研/数据发现了什么？（用证据说话）</p>
+                        <p><strong>3. 设计策略：</strong>用了什么设计原则/方法？（专业性体现）</p>
+                        <p><strong>4. 方案展示：</strong>具体方案是什么？为什么选这个？（对比多方案）</p>
+                        <p><strong>5. 预期效果：</strong>预计对哪些指标有影响？（量化思维）</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>设计师如何与开发高效协作</h3><span class="kc-level">实战</span></div>
+                    <div class="kc-body">
+                        <div class="kc-keypoint">
+                            <h4>设计交付的关键要素</h4>
+                            <p><strong>标注规范：</strong>间距、字号、颜色值、组件状态一目了然。</p>
+                            <p><strong>交互说明：</strong>每个交互状态（默认/悬浮/按下/禁用/加载/空状态/错误状态）都要覆盖。</p>
+                            <p><strong>异常流设计：</strong>网络断开、数据为空、超长文本、权限不足等边界情况。设计师不覆盖，开发就会自由发挥。</p>
+                            <p><strong>动效描述：</strong>用文字+参数描述动效（如"ease-out, 300ms, 从底部上滑120px"），而非只给一个动效视频。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>设计走查要点</h4>
+                            <p><strong>像素级对比：</strong>间距、字号、颜色是否和设计稿一致。</p>
+                            <p><strong>交互完整性：</strong>所有状态是否都实现了？动效是否流畅？</p>
+                            <p><strong>边界验证：</strong>极端数据（超长文本、大数字）的显示是否正常？</p>
+                            <p><strong>多设备测试：</strong>大小屏、不同系统版本的表现。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 交互设计 ==================== -->
+        <section class="page" id="page-interaction">
+            <h1 class="page-title">交互设计</h1>
+            <p class="page-intro">从理论到实践，系统掌握交互设计的核心知识体系。</p>
+            <div class="tabs">
+                <button class="tab active" data-tab="ix-principles">基础理论</button>
+                <button class="tab" data-tab="ix-ia">信息架构</button>
+                <button class="tab" data-tab="ix-navigation">导航与流程</button>
+                <button class="tab" data-tab="ix-patterns">交互模式</button>
+                <button class="tab" data-tab="ix-micro">微交互</button>
+                <button class="tab" data-tab="ix-a11y">无障碍设计</button>
+                <button class="tab" data-tab="ix-emotion">情感化设计</button>
+                <button class="tab" data-tab="ix-system">设计系统</button>
+                <button class="tab" data-tab="ix-live">直播场景</button>
+                <button class="tab" data-tab="ix-bside">B端设计</button>
+            </div>
+
+            <div class="tab-content active" id="tab-ix-principles">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>尼尔森十大可用性原则</h3><span class="kc-level">核心</span></div>
+                    <div class="kc-body">
+                        <p>Jakob Nielsen 提出的十大可用性启发式原则，是交互设计领域最经典、应用最广泛的评估框架。</p>
+                        <div class="principles-grid">
+                            <div class="principle-item"><span class="principle-num">01</span><h4>系统状态可见性</h4><p>系统应该在合理时间内给用户清晰的状态反馈。</p><p class="principle-eg">案例：外卖App的订单状态进度条——已接单→备餐中→骑手取餐→配送中→已送达。</p></div>
+                            <div class="principle-item"><span class="principle-num">02</span><h4>系统与真实世界匹配</h4><p>使用用户熟悉的语言和概念，而非系统术语。</p><p class="principle-eg">案例：iOS 的「回收站」用垃圾桶图标，比"临时删除缓存区"易懂得多。</p></div>
+                            <div class="principle-item"><span class="principle-num">03</span><h4>用户控制与自由</h4><p>用户操作后应该能轻松撤销和恢复。</p><p class="principle-eg">案例：Gmail 发送邮件后的"撤回"功能——给用户一个后悔的机会。</p></div>
+                            <div class="principle-item"><span class="principle-num">04</span><h4>一致性与标准化</h4><p>相同的操作在不同地方应有相同的行为和外观。</p><p class="principle-eg">案例：iOS 全局统一的左滑返回手势，用户学一次就能到处用。</p></div>
+                            <div class="principle-item"><span class="principle-num">05</span><h4>防错设计</h4><p>比报错提示更好的是从根本上防止错误发生。</p><p class="principle-eg">案例：日期选择器禁用不可选日期，比用户输错后报错体验好得多。</p></div>
+                            <div class="principle-item"><span class="principle-num">06</span><h4>识别优于记忆</h4><p>让信息和操作可见，减少用户的记忆负担。</p><p class="principle-eg">案例：搜索框的历史记录和联想建议，用户不需要记住上次搜什么。</p></div>
+                            <div class="principle-item"><span class="principle-num">07</span><h4>灵活性与使用效率</h4><p>同时满足新手和专家用户的需求。</p><p class="principle-eg">案例：Photoshop 的快捷键系统——新手用菜单，专家用 Cmd+Z。</p></div>
+                            <div class="principle-item"><span class="principle-num">08</span><h4>美学与极简设计</h4><p>界面不应包含无关或很少需要的信息。</p><p class="principle-eg">案例：Google 首页——全世界最大的搜索引擎，首页只有一个搜索框。</p></div>
+                            <div class="principle-item"><span class="principle-num">09</span><h4>帮助用户识别和修复错误</h4><p>错误信息应明确指出问题，并建议解决方案。</p><p class="principle-eg">案例：表单验证告诉用户"密码至少8位，需包含大小写"，而非只说"格式错误"。</p></div>
+                            <div class="principle-item"><span class="principle-num">10</span><h4>帮助文档</h4><p>最好不需要文档就能使用，但必要时应提供易搜索的帮助。</p><p class="principle-eg">案例：Notion 的 "/" 命令——既是功能入口，也是教学工具。</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>经典交互定律</h3><span class="kc-level">基础</span></div>
+                    <div class="kc-body">
+                        <div class="kc-keypoint">
+                            <h4>费茨定律 (Fitts's Law)</h4>
+                            <p>移动到目标的时间取决于距离和目标大小。<strong>距离越近、目标越大，操作越快。</strong></p>
+                            <p>设计启示：重要按钮要足够大，放在容易触及的位置。手机底部导航利用屏幕边缘的"无限宽度"效应。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>希克定律 (Hick's Law)</h4>
+                            <p>选项越多，决策时间越长。<strong>T = a + b × log₂(n)</strong></p>
+                            <p>设计启示：减少同时呈现的选项数量。淘宝搜索结果用"综合排序/销量/价格"分类过滤，帮用户缩小选择范围。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>格式塔原理</h4>
+                            <p><strong>接近性：</strong>距离近的元素被感知为一组。用间距代替分割线来分组信息。</p>
+                            <p><strong>相似性：</strong>外观相似的元素被感知为一组。同类操作用相同样式的按钮。</p>
+                            <p><strong>连续性：</strong>人眼倾向于沿着线条/曲线的方向感知。时间轴设计利用这一原理引导视线。</p>
+                            <p><strong>闭合性：</strong>人脑会自动补全不完整的图形。卡片列表露出下一张的一部分，暗示"可滑动"。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>米勒定律 (Miller's Law)</h4>
+                            <p>人的短期工作记忆容量大约为 7±2 个信息块（chunk）。</p>
+                            <p>设计启示：手机号码分段显示（138-0000-0000）比连续11位更易记忆。导航项目控制在5-9个以内。但要注意：这不意味着所有列表都要限制在7个，而是同时需要用户记住的信息应控制在这个范围内。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>雅各布定律 (Jakob's Law)</h4>
+                            <p>用户大部分时间在使用其他产品，所以他们期望你的产品和那些产品有类似的交互方式。</p>
+                            <p>设计启示：不要为了"创新"而打破用户已有的习惯。电商的购物车、搜索框、导航栏的位置，都有行业默认规范。除非你有极强的理由，否则不要偏离。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-ix-ia">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>信息架构基础</h3><span class="kc-level">核心</span></div>
+                    <div class="kc-body">
+                        <p>信息架构（Information Architecture）是组织、标签、导航和搜索系统的设计，目标是帮用户找到信息并完成任务。</p>
+                        <div class="kc-keypoint">
+                            <h4>信息架构四要素</h4>
+                            <p><strong>组织系统：</strong>信息如何分类？按类别/时间/字母/地理位置/任务？</p>
+                            <p><strong>标签系统：</strong>怎么命名？用户能否一眼看懂这个入口是什么？</p>
+                            <p><strong>导航系统：</strong>用户如何在页面间移动？如何知道"我在哪"和"能去哪"？</p>
+                            <p><strong>搜索系统：</strong>用户如何通过搜索找到目标信息？</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>常见架构模式</h4>
+                            <p><strong>层级式（树状）：</strong>最常见，如电商的 品类→子品类→商品。适合内容有明确分类关系的场景。</p>
+                            <p><strong>矩阵式：</strong>允许多维度交叉查找。如酒店预订：可按地区、价格、星级等多个维度筛选。</p>
+                            <p><strong>线性式：</strong>按步骤引导。如注册流程、问卷调查。</p>
+                            <p><strong>网状式：</strong>内容间自由链接。如 Wikipedia。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：美团 App 的信息架构拆解</h4>
+                        <p><strong>首页：</strong>矩阵式——多入口平铺（外卖、到店、酒店、打车等），用户可从任意入口进入。</p>
+                        <p><strong>外卖频道：</strong>层级式——品类筛选→商家列表→商家详情→菜品选择→购物车→结算。</p>
+                        <p><strong>搜索：</strong>联想补全+历史记录+热门推荐，降低用户搜索成本。</p>
+                        <p><strong>设计思考：</strong>首页用矩阵式而非层级式，是因为美团是"超级App"，用户的起始需求差异极大，需要平行展示多个核心入口。</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>卡片分类法</h3><span class="kc-level">方法</span></div>
+                    <div class="kc-body">
+                        <p>卡片分类是验证信息架构设计的经典方法，让真实用户参与信息的分类和命名。</p>
+                        <div class="kc-keypoint">
+                            <h4>两种形式</h4>
+                            <p><strong>开放式卡片分类：</strong>用户自由分组和命名 → 了解用户的心智模型</p>
+                            <p><strong>封闭式卡片分类：</strong>提供预设分类，用户将内容归类 → 验证现有架构是否合理</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>操作步骤</h4>
+                            <p>准备内容卡片（20-60张） → 邀请 15-20 位目标用户 → 用户分组和命名 → 分析相似矩阵 → 提炼架构方案</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-ix-navigation">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>导航模式详解</h3><span class="kc-level">核心</span></div>
+                    <div class="kc-body">
+                        <div class="kc-keypoint">
+                            <h4>标签栏导航（Tab Bar）</h4>
+                            <p>底部 3-5 个固定入口，适合核心功能入口明确且平级的产品。</p>
+                            <p><strong>优势：</strong>操作便捷（拇指可达），核心功能一目了然。</p>
+                            <p><strong>案例：</strong>微信（聊天/通讯录/发现/我）、美团（首页/附近/订单/我的）。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>汉堡菜单（Hamburger Menu）</h4>
+                            <p>将导航收起到侧边栏，释放屏幕空间。</p>
+                            <p><strong>优势：</strong>可容纳大量菜单项，界面简洁。</p>
+                            <p><strong>劣势：</strong>入口隐藏，用户可能不知道有什么功能。数据表明隐藏式导航的功能曝光率比标签栏低约 50%。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>手势导航</h4>
+                            <p>利用滑动、长按等手势进行操作。</p>
+                            <p><strong>优势：</strong>操作高效，界面极简。</p>
+                            <p><strong>劣势：</strong>学习成本高，可发现性差。通常作为快捷方式而非唯一操作路径。</p>
+                            <p><strong>案例：</strong>iOS 邮件的左滑删除/右滑标记，Tinder 的左右滑动。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：从「更多」到「底部导航」的设计教训</h4>
+                        <p>早期 Facebook 移动端用汉堡菜单隐藏大量功能，后来改为底部标签栏+更多。改版后核心功能（如 Feed、通知、Marketplace）的使用频率显著提升。这说明：<strong>可见性对功能使用率的影响远大于界面简洁性。</strong></p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>任务流程设计</h3><span class="kc-level">核心</span></div>
+                    <div class="kc-body">
+                        <div class="kc-keypoint">
+                            <h4>流程设计的核心原则</h4>
+                            <p><strong>最短路径原则：</strong>从起点到目标的步骤越少越好。每多一步都会流失用户。</p>
+                            <p><strong>渐进披露原则：</strong>不要一次性展示所有信息，按需逐步展示。</p>
+                            <p><strong>预期管理：</strong>在流程开始时告知用户大概需要几步（如"还需3步完成"）。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：拼多多 vs 淘宝的下单流程对比</h4>
+                        <p><strong>淘宝：</strong>商品详情→选规格→加购物车→结算→确认订单→支付（5-6步）</p>
+                        <p><strong>拼多多：</strong>商品详情→选规格→直接支付（2-3步），弱化购物车概念</p>
+                        <p><strong>思考：</strong>拼多多的目标用户更偏冲动消费，缩短路径降低"犹豫"机会。淘宝保留购物车是因为用户有"凑满减/比较"的需求。没有绝对的好坏，取决于用户场景。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-ix-patterns">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>常见交互组件与模式</h3><span class="kc-level">核心</span></div>
+                    <div class="kc-body">
+                        <div class="kc-keypoint">
+                            <h4>弹窗体系</h4>
+                            <p><strong>Dialog（对话框）：</strong>需要用户明确决策时使用，如"确定删除？"。阻断主流程，慎用。</p>
+                            <p><strong>Drawer（抽屉）：</strong>需要展示更多信息但不离开当前页面。从底部/侧边滑出。</p>
+                            <p><strong>Toast（轻提示）：</strong>操作结果反馈，短暂显示后自动消失。不阻断操作。</p>
+                            <p><strong>Snackbar：</strong>比 Toast 多一个操作按钮（如"撤回"），在底部短暂展示。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>列表与信息展示</h4>
+                            <p><strong>无限滚动 vs 分页：</strong>内容消费型（如 Feed）适合无限滚动；目标导向型（如搜索结果）适合分页——用户需要"位置感"。</p>
+                            <p><strong>骨架屏 vs 加载动画：</strong>骨架屏能降低感知等待时间，适合内容较固定的页面布局。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>表单设计黄金法则</h4>
+                            <p><strong>字段越少越好：</strong>每多一个字段，转化率降低约 5-10%。</p>
+                            <p><strong>标签位置：</strong>左对齐标签（视觉稳定但效率低）vs 顶部标签（效率高，推荐移动端使用）。</p>
+                            <p><strong>实时验证：</strong>用户输完即验证，而非提交后才报错。</p>
+                            <p><strong>智能默认值：</strong>根据用户信息预填，减少输入量。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>移动端 vs PC 端交互差异</h3><span class="kc-level">基础</span></div>
+                    <div class="kc-body">
+                        <div class="kc-keypoint">
+                            <h4>核心差异对照</h4>
+                            <p><strong>输入方式：</strong>移动端以触控为主（手指精度低），PC端以鼠标键盘为主（精度高）。所以移动端点击区域最小 44×44pt。</p>
+                            <p><strong>屏幕空间：</strong>移动端寸土寸金，信息需要更强的优先级排序。PC端可利用宽屏做多栏布局。</p>
+                            <p><strong>使用场景：</strong>移动端多碎片化、单手操作；PC端多专注场景、双手操作。</p>
+                            <p><strong>交互方式：</strong>移动端有独特的手势系统（滑动、捏合、长按）；PC端有 Hover 状态、右键菜单、快捷键。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：微信 PC 版 vs 手机版</h4>
+                        <p>手机版微信用底部标签栏切换，利用拇指可达区域。PC版改为左侧固定导航栏，利用大屏幕的宽度。消息列表在手机上是全屏展示，在PC上改为左窄右宽的分栏布局——可以同时看到列表和聊天内容。这不是简单的放大，而是基于平台特性的重新设计。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-ix-micro">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>微交互设计</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <p>微交互是产品中细微的、单一任务的交互瞬间。它们看似不起眼，但决定了产品"好用"和"好用到令人愉悦"的差距。</p>
+                        <div class="kc-keypoint">
+                            <h4>微交互四要素（Dan Saffer 模型）</h4>
+                            <p><strong>触发器（Trigger）：</strong>什么启动了这个微交互？用户操作 or 系统条件。</p>
+                            <p><strong>规则（Rules）：</strong>微交互的运行规则是什么？</p>
+                            <p><strong>反馈（Feedback）：</strong>用户如何知道发生了什么？</p>
+                            <p><strong>循环与模式（Loops & Modes）：</strong>重复使用时行为是否变化？</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例拆解：微信「点赞」微交互</h4>
+                        <p><strong>触发器：</strong>用户双击消息（或长按选择"👍"）。</p>
+                        <p><strong>规则：</strong>在消息下方显示点赞 emoji，附带轻微的弹跳动画。</p>
+                        <p><strong>反馈：</strong>视觉反馈（动画）+ 对方收到通知。</p>
+                        <p><strong>循环：</strong>再次点击可以取消或更换表情。</p>
+                        <p><strong>设计价值：</strong>降低了社交回应的门槛——不用打字也能有效互动。</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>动效设计原则</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <div class="kc-keypoint">
+                            <h4>动效的功能价值</h4>
+                            <p><strong>状态过渡：</strong>帮助用户理解界面变化。页面切换的滑动动效暗示空间关系。</p>
+                            <p><strong>注意力引导：</strong>引导用户关注重要信息。新消息的抖动效果。</p>
+                            <p><strong>等待缓解：</strong>加载动画降低感知等待时间。有进度的加载比菊花转让人更有耐心。</p>
+                            <p><strong>情感传达：</strong>增加产品的个性和愉悦感。但不能为了动效牺牲效率。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>动效时长参考</h4>
+                            <p><strong>简单操作反馈：</strong>100-200ms（如按钮按下）</p>
+                            <p><strong>页面转场：</strong>200-300ms</p>
+                            <p><strong>复杂动画：</strong>300-500ms</p>
+                            <p><strong>超过 500ms</strong> 的动效会让用户感到"慢"。记住：<strong>动效是为内容服务的，不是用来炫技的。</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新增：无障碍设计 -->
+            <div class="tab-content" id="tab-ix-a11y">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>无障碍设计 (Accessibility)</h3><span class="kc-level">核心</span></div>
+                    <div class="kc-body">
+                        <p>无障碍设计确保所有人（包括视觉、听觉、运动、认知障碍用户）都能使用产品。这不只是"善举"，也是法律要求和商业机会——全球约15%的人口有某种形式的残障。</p>
+                        <div class="kc-keypoint">
+                            <h4>WCAG 2.1 四大原则 (POUR)</h4>
+                            <p><strong>可感知 (Perceivable)：</strong>信息必须能被所有用户感知。图片需要alt文本、视频需要字幕、不能仅靠颜色传达信息。</p>
+                            <p><strong>可操作 (Operable)：</strong>界面必须能被所有用户操作。键盘可导航、给予充足操作时间、避免诱发癫痫的闪烁。</p>
+                            <p><strong>可理解 (Understandable)：</strong>信息和界面操作必须可理解。清晰的标签、一致的导航、有意义的错误提示。</p>
+                            <p><strong>健壮性 (Robust)：</strong>内容必须能被各种技术（包括辅助技术）正确解释。语义化HTML、正确的ARIA属性。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>设计师必须掌握的无障碍要点</h4>
+                            <p><strong>颜色对比度：</strong>正文文本与背景至少 4.5:1，大文本至少 3:1。不要仅靠颜色区分信息（色盲用户看不出红绿差异）。</p>
+                            <p><strong>触控区域：</strong>最小 44×44pt（iOS）/ 48×48dp（Android），考虑手指粗大或运动障碍的用户。</p>
+                            <p><strong>文字大小：</strong>正文至少 16px，支持用户自定义字体大小，不要用图片替代文字。</p>
+                            <p><strong>焦点指示：</strong>键盘导航时必须有清晰的焦点样式，不要用 outline:none 去掉默认焦点环。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：苹果的无障碍设计标杆</h4>
+                        <p><strong>VoiceOver：</strong>iOS 内置的屏幕朗读器，配合手势操作，让盲人用户也能完整使用iPhone。</p>
+                        <p><strong>动态字体：</strong>用户可以全局调整字体大小，支持 Dynamic Type 的App会自动适配。</p>
+                        <p><strong>减弱动态效果：</strong>系统级开关让对动效敏感的用户关闭视差、动画等效果。</p>
+                        <p><strong>商业启示：</strong>苹果因无障碍设计赢得了大量忠实用户（不仅是残障用户），也成为企业采购的加分项。好的无障碍设计惠及所有人。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新增：情感化设计 -->
+            <div class="tab-content" id="tab-ix-emotion">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>情感化设计三层次</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <p>Donald Norman 在《情感化设计》中提出设计的三个层次，从基本功能到深层情感，逐步构建用户与产品的连接。</p>
+                        <div class="kc-keypoint">
+                            <h4>本能层 (Visceral Design)</h4>
+                            <p>用户的第一印象和直觉反应——"好不好看""想不想用"。视觉设计、色彩、排版、质感都在这个层次发挥作用。</p>
+                            <p><strong>案例：</strong>Apple 产品的开箱体验——精致的包装、产品的手感，在你还没使用之前就建立了"高品质"的感知。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>行为层 (Behavioral Design)</h4>
+                            <p>使用过程中的体验——"好不好用""效率高不高"。功能性、可用性、交互流畅度。</p>
+                            <p><strong>案例：</strong>iPhone 的触控响应极快且流畅，让操作"跟手"。这种行为层的体验让用户感到"产品在为我服务"。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>反思层 (Reflective Design)</h4>
+                            <p>用户使用后的回忆和自我认知——"用这个产品的我是什么样的人"。品牌认同、社交身份、长期情感连接。</p>
+                            <p><strong>案例：</strong>Moleskine 笔记本——功能上和普通笔记本没有本质区别，但用户觉得"用 Moleskine 的人是有品味的/有创造力的"。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：Slack 的情感化设计</h4>
+                        <p><strong>本能层：</strong>活泼的色彩系统、友好的插画风格，打开就有"这个工具不无聊"的感觉。</p>
+                        <p><strong>行为层：</strong>消息搜索极快、快捷键丰富、集成强大——工作效率真的提升了。</p>
+                        <p><strong>反思层：</strong>加载页面的随机趣味文案（"You look nice today"）、自定义emoji和状态——让工作沟通有了人情味，用户会说"我们团队用Slack"时带着一种认同感。</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>空状态与异常体验设计</h3><span class="kc-level">实战</span></div>
+                    <div class="kc-body">
+                        <p>空状态和错误页面是最容易被忽视，却最能体现产品温度的设计机会。</p>
+                        <div class="kc-keypoint">
+                            <h4>空状态类型与设计策略</h4>
+                            <p><strong>首次使用空状态：</strong>引导用户开始第一个操作（如"创建你的第一个项目"），降低上手门槛。</p>
+                            <p><strong>清空状态：</strong>用户主动清空后看到的状态（如购物车清空），可以推荐相关内容引导二次消费。</p>
+                            <p><strong>搜索无结果：</strong>给出替代建议（"试试搜索XX"），而非冷冰冰的"无结果"。</p>
+                            <p><strong>网络错误：</strong>告知原因+提供重试操作+展示缓存内容（如有）。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例对比：空状态的温度差异</h4>
+                        <p><strong>冷冰冰：</strong>"暂无数据"（完，啥也没有）</p>
+                        <p><strong>有温度：</strong>Mailchimp 的空收件箱显示一只开心的猴子插画和文案"High five! You've read all your emails"——把空状态变成了一个小小的成就感时刻。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新增：设计系统 -->
+            <div class="tab-content" id="tab-ix-system">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>设计系统概述</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <p>设计系统（Design System）是一套由设计原则、组件库、样式指南和文档组成的完整体系，确保产品在不同团队、不同页面间保持一致的体验。</p>
+                        <div class="kc-keypoint">
+                            <h4>设计系统的三层结构</h4>
+                            <p><strong>设计令牌 (Design Tokens)：</strong>最基础的视觉元素——颜色值、字号、间距、圆角、阴影等。它们是跨平台一致性的基础。</p>
+                            <p><strong>组件库 (Component Library)：</strong>可复用的 UI 组件——按钮、输入框、卡片、对话框等。每个组件有明确的状态、变体和使用规范。</p>
+                            <p><strong>模式库 (Pattern Library)：</strong>组件的组合使用方式——如何组合组件来解决特定设计问题。如"表单提交流程"、"搜索结果展示"。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>为什么需要设计系统？</h4>
+                            <p><strong>一致性：</strong>用户在产品的任何角落都能感受到统一的体验。</p>
+                            <p><strong>效率：</strong>设计师和开发不需要每次从零开始做按钮。</p>
+                            <p><strong>可扩展性：</strong>产品规模扩大时，新团队能快速上手，不走偏。</p>
+                            <p><strong>质量保障：</strong>经过验证的组件减少了设计和开发中的错误。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 业界知名设计系统</h4>
+                        <p><strong>Material Design (Google)：</strong>最全面的设计系统之一，覆盖Web、移动端、桌面，组件规范极其详尽。</p>
+                        <p><strong>Human Interface Guidelines (Apple)：</strong>强调平台一致性，iOS/macOS/watchOS各有针对性的规范。</p>
+                        <p><strong>Ant Design (蚂蚁)：</strong>B端设计系统典范，对中后台场景有深入的模式总结。</p>
+                        <p><strong>Fluent Design (Microsoft)：</strong>强调层次和深度，支持多平台多设备。</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>原子设计方法论</h3><span class="kc-level">方法</span></div>
+                    <div class="kc-body">
+                        <p>Brad Frost 提出的原子设计方法论，用化学概念来组织设计系统的层次结构。</p>
+                        <div class="kc-keypoint">
+                            <h4>五个层次</h4>
+                            <p><strong>原子 (Atoms)：</strong>最小的不可再分的UI元素——按钮、标签、输入框、图标。</p>
+                            <p><strong>分子 (Molecules)：</strong>多个原子组合成的功能单元——搜索框（输入框+按钮）、标签输入（输入框+标签）。</p>
+                            <p><strong>有机体 (Organisms)：</strong>多个分子组成的独立区块——顶部导航栏、商品卡片、评论区域。</p>
+                            <p><strong>模板 (Templates)：</strong>有机体组合成的页面布局框架——用灰色占位符展示整体结构。</p>
+                            <p><strong>页面 (Pages)：</strong>模板填入真实内容后的最终呈现——可以验证设计在真实数据下是否正常工作。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 直播场景交互设计 -->
+            <div class="tab-content" id="tab-ix-live">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>直播间交互设计核心原则</h3><span class="kc-level">实战</span></div>
+                    <div class="kc-body">
+                        <p>直播间是一个高密度、强实时、多层叠加的复杂交互场景。与普通页面不同，直播间的核心内容（视频流）始终在后台运行，所有 UI 元素都是"叠加层"，设计时需要格外注意打扰程度的控制。</p>
+                        <div class="kc-keypoint">
+                            <h4>强打扰 vs 弱打扰的权衡</h4>
+                            <p>直播间的 UI 元素按打扰程度可分为三级：</p>
+                            <p><strong>强打扰（全屏/半屏弹层）：</strong>完全遮挡视频内容，用户必须处理后才能继续观看。适用于极高优先级的操作，如支付确认、重要系统通知。滥用会导致用户反感和流失。</p>
+                            <p><strong>中打扰（底部浮层/货架）：</strong>遮挡部分视频，用户可以选择关闭。适用于商品浏览、优惠券领取等核心业务场景。</p>
+                            <p><strong>弱打扰（顶部横幅/角标）：</strong>不遮挡主要内容，用户可以忽略。适用于"告知"类信息，如"券已入账"、"有新消息"。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>告知型 vs 操作型的区分</h4>
+                            <p>设计直播间通知时，首先要判断这个通知的核心诉求是什么：</p>
+                            <p><strong>告知型：</strong>核心目的是让用户知道某件事发生了，不需要立即操作。应使用弱打扰形式（顶部横幅、Toast）。即使点击率低也没关系，因为目标不是点击。</p>
+                            <p><strong>操作型：</strong>需要用户主动完成某个动作（领券、购买、参与互动）。应使用中等打扰形式，并提供清晰的操作入口。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 真实案例：直播间神券展示位置决策</h4>
+                        <p><strong>背景：</strong>平台希望在直播间内展示"神券"（平台补贴券），让用户领取后提升下单率。</p>
+                        <p><strong>问题：</strong>直播间进场时货架会自动拉起，传统的底部浮层被遮挡，曝光率极低。</p>
+                        <p><strong>方案对比：</strong></p>
+                        <p>方案A（底部弹层）：曝光率低，被货架遮挡；方案B（直播间强弹窗）：打扰用户，影响观看体验；方案C（货架顶部横幅）：在货架拉起时依然可见，且用户已进入购物心智，领券链路更自然。</p>
+                        <p><strong>决策：</strong>选择方案C——货架顶部横幅。核心逻辑：该场景的诉求是"告知用户券已入账"，而非"让用户点击"，弱打扰形式完全满足需求，且不影响观看体验。</p>
+                        <p><strong>设计思考：</strong>展示位置的选择不只是视觉问题，更是对用户心智状态的判断——用户在货架场景已经进入"购物模式"，此时展示优惠券的接受度远高于纯观看时。</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>券组件交互设计</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <p>优惠券是电商直播间的核心转化工具，其交互设计直接影响领取率和下单率。</p>
+                        <div class="kc-keypoint">
+                            <h4>单券 vs 多券展示</h4>
+                            <p><strong>单券展示的问题：</strong>当业务方配置了多张不同门槛的券（如满100减10、满200减25、满300减40），单张展示会导致用户只看到一张，无法感知整体优惠力度，领取率低。</p>
+                            <p><strong>多券并排方案：</strong>将多张券横向排列展示，用户可以一眼看到所有优惠，并通过"一键领取"降低操作成本。关键设计点：券的排列顺序（按门槛从低到高）、已领取状态的视觉区分、超出屏幕时的滑动提示。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>券的感知设计</h4>
+                            <p><strong>位置感知：</strong>用户领券后，需要知道"券在哪里"。封闭的弹层会让用户不知道券去了哪里。更好的方案是半包边样式并指向购物袋图标，建立"券→购物袋"的视觉关联。</p>
+                            <p><strong>膨胀交互：</strong>部分券需要用户手动"膨胀"（激活）才能使用。交互设计要让这个步骤清晰可见，避免用户领了券却不知道要激活。</p>
+                            <p><strong>样式统一：</strong>直播间内可能同时存在惊喜券、粉丝券、神券等多种形式，样式不统一会造成视觉混乱。应建立统一的券组件规范，通过颜色/标签区分类型，而非完全不同的样式。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>直播间层级管理</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <p>直播间是一个多层叠加的复杂 UI 场景，需要建立清晰的层级管理规范，避免各业务方的组件相互遮挡、冲突。</p>
+                        <div class="kc-keypoint">
+                            <h4>典型层级结构（从底到顶）</h4>
+                            <p><strong>Layer 0 — 视频流：</strong>直播画面，始终在最底层。</p>
+                            <p><strong>Layer 1 — 常驻 UI：</strong>评论区、点赞按钮、关注按钮等始终可见的元素。</p>
+                            <p><strong>Layer 2 — 业务浮层：</strong>商品卡片、活动入口、礼物特效等。</p>
+                            <p><strong>Layer 3 — 货架/半屏：</strong>商品列表、优惠券列表等半屏组件。</p>
+                            <p><strong>Layer 4 — 全屏弹层：</strong>支付确认、重要通知等最高优先级内容。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>层级冲突的常见问题</h4>
+                            <p><strong>货架拉起时的遮挡：</strong>货架（Layer 3）会遮挡 Layer 2 的业务浮层，需要在货架拉起时主动隐藏或调整被遮挡的元素。</p>
+                            <p><strong>多个业务方竞争同一位置：</strong>需要建立优先级规则，明确哪个业务的组件在冲突时优先展示。</p>
+                            <p><strong>动画冲突：</strong>多个组件同时有入场动画时，需要错开时机，避免视觉混乱。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- B端交互设计 -->
+            <div class="tab-content" id="tab-ix-bside">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>B端 vs C端交互设计差异</h3><span class="kc-level">核心</span></div>
+                    <div class="kc-body">
+                        <p>B端（商家/运营后台）和C端（消费者端）的用户群体、使用场景和设计目标有本质差异，不能用同一套思路来设计。</p>
+                        <div class="kc-keypoint">
+                            <h4>核心差异对比</h4>
+                            <p><strong>用户特征：</strong>C端用户多样、随机、使用频率不固定；B端用户是专业操作者，每天高频使用，对效率要求极高。</p>
+                            <p><strong>学习成本：</strong>C端要求零学习成本，用户不会看说明书；B端用户愿意花时间学习，换取长期效率提升。</p>
+                            <p><strong>信息密度：</strong>C端信息要稀疏，突出重点；B端需要高密度信息，让操作者一屏看到更多数据。</p>
+                            <p><strong>错误容忍：</strong>C端错误成本低，可以撤销；B端操作往往影响真实业务，错误成本高，需要更严格的防错设计。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>B端设计的核心原则</h4>
+                            <p><strong>效率优先：</strong>减少操作步骤，支持批量操作，提供快捷键。</p>
+                            <p><strong>状态清晰：</strong>操作对象的当前状态必须一目了然（进行中/已完成/已暂停/异常）。</p>
+                            <p><strong>操作可逆：</strong>重要操作提供确认步骤，危险操作（删除）需要二次确认。</p>
+                            <p><strong>反馈及时：</strong>操作结果要立即反馈，批量操作要显示进度。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>B端操作区设计规范</h3><span class="kc-level">实战</span></div>
+                    <div class="kc-body">
+                        <p>操作区（Action Area）是B端界面中最容易出问题的区域，直接影响操作效率和错误率。</p>
+                        <div class="kc-keypoint">
+                            <h4>操作按钮的层级与排列</h4>
+                            <p><strong>主操作（Primary）：</strong>每个区域只有一个主操作，用实心按钮突出显示。如"发布"、"保存"、"确认"。</p>
+                            <p><strong>次操作（Secondary）：</strong>辅助性操作，用线框按钮或文字按钮。如"预览"、"取消"、"重置"。</p>
+                            <p><strong>危险操作（Danger）：</strong>不可逆的破坏性操作，用红色标识。如"删除"、"强制结束"。危险操作应与其他操作保持视觉距离，避免误触。</p>
+                            <p><strong>排列顺序：</strong>主操作在右（符合用户从左到右的阅读习惯，最后看到的是主操作）；危险操作放在最左或单独区域。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>置灰（Disabled）状态的设计</h4>
+                            <p>置灰是B端设计中最常用也最容易误用的状态。</p>
+                            <p><strong>何时置灰：</strong>当前状态下操作不可用，但未来可能可用（如"投放中"状态下不能删除，但可以结束）。</p>
+                            <p><strong>置灰的问题：</strong>用户看到置灰按钮时，不知道"为什么不能用"、"什么时候能用"。</p>
+                            <p><strong>更好的方案：</strong>Hover 时显示 Tooltip 说明原因（"投放中的活动不能删除，请先结束投放"）；或者直接隐藏不可用的操作，而非置灰。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 真实案例：直播间B端投票功能 Review</h4>
+                        <p><strong>问题1：操作区对齐不一致。</strong>"创建投票"按钮左右间距不一致，视觉上显得随意。B端操作区应严格遵循栅格对齐，间距统一。</p>
+                        <p><strong>问题2：删除和结束操作未区分。</strong>"删除"和"结束"都是破坏性操作，但危险程度不同——删除是不可逆的，结束是可逆的。应通过颜色（红色=删除，普通色=结束）和位置区分。</p>
+                        <p><strong>问题3：信息重复导致认知负担。</strong>投票结果页同时显示百分比和人数，且图表与数字关联不密切，用户第一次看不明白。应精简信息，让图表和数字形成清晰的对应关系。</p>
+                        <p><strong>问题4：渐进式披露的缺失。</strong>"人工干预"模块在投票未开始时就完整展示，但此时不可用。更好的方案是：投票开始后再展示该模块，或默认折叠，点击后展开。</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>双端适配设计（APP → PC）</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <p>许多B端产品需要同时支持移动端（APP）和桌面端（PC），传统做法是分别设计两套，成本极高。系统化的双端适配方法可以大幅提升效率。</p>
+                        <div class="kc-keypoint">
+                            <h4>双端适配的核心差异</h4>
+                            <p><strong>布局：</strong>APP 单列/双列；PC 多列，可利用更宽的屏幕展示更多信息。</p>
+                            <p><strong>交互方式：</strong>APP 手势操作（滑动、长按、捏合）；PC 鼠标操作（Hover、右键、拖拽）。</p>
+                            <p><strong>信息密度：</strong>APP 信息稀疏，每屏聚焦一个任务；PC 可以高密度展示，支持多任务并行。</p>
+                            <p><strong>导航模式：</strong>APP 底部 Tab Bar + 页面堆叠；PC 左侧导航 + 内容区。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>Design System × Skill 双端适配实践</h4>
+                            <p>美团外卖B端团队探索了一套基于 Design System 的双端适配方法，通过构建「基础样式→适配规则→常见模式→问题核查」的多层级 Skill 体系，实现 APP 设计稿直接生成 PC 方案。</p>
+                            <p><strong>核心思路：</strong>将原本依赖个人经验的双端适配判断，沉淀为可复用的系统规则。设计师不再需要每次从头思考"这个组件在PC上怎么放"，而是由 AI 基于规则自动生成，设计师只需做边界修正。</p>
+                            <p><strong>效果：</strong>在 20+ 项目中稳定落地，表单、列表、图表等多类场景的适配效率提升 50%-83%。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 设计方法论 ==================== -->
+        <section class="page" id="page-methodology">
+            <h1 class="page-title">设计方法论</h1>
+            <p class="page-intro">系统化的设计思维与工作流程，让你的设计决策有理有据。</p>
+            <div class="tabs">
+                <button class="tab active" data-tab="meth-thinking">设计思维</button>
+                <button class="tab" data-tab="meth-research">用户研究</button>
+                <button class="tab" data-tab="meth-compete">竞品分析</button>
+                <button class="tab" data-tab="meth-usability">可用性评估</button>
+                <button class="tab" data-tab="meth-journey">旅程与蓝图</button>
+                <button class="tab" data-tab="meth-metrics">设计度量</button>
+                <button class="tab" data-tab="meth-ai">AI新范式</button>
+            </div>
+
+            <div class="tab-content active" id="tab-meth-thinking">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>双钻模型</h3><span class="kc-level">核心</span></div>
+                    <div class="kc-body">
+                        <p>双钻模型（Double Diamond）是英国设计委员会提出的设计流程框架，核心是两次「发散→收敛」。</p>
+                        <div class="kc-keypoint">
+                            <h4>第一颗钻石：找对问题</h4>
+                            <p><strong>发现（Discover）：</strong>开放式研究，尽可能多地了解问题背景。用户访谈、观察、数据分析。</p>
+                            <p><strong>定义（Define）：</strong>收敛聚焦，明确真正要解决的问题是什么。提炼设计挑战、明确设计目标。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>第二颗钻石：找对方案</h4>
+                            <p><strong>发展（Develop）：</strong>大量产出解决方案，头脑风暴、原型探索、方案对比。</p>
+                            <p><strong>交付（Deliver）：</strong>收敛到最优方案，测试验证、迭代优化、交付上线。</p>
+                        </div>
+                        <p><strong>关键理念：</strong>设计师最常犯的错误是跳过第一颗钻石——还没搞清问题就急着出方案。花 40% 的时间在"找对问题"上，比直接画稿效率高得多。</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>Design Sprint（设计冲刺）</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <p>Google Ventures 提出的 5 天设计冲刺方法，用一周时间快速验证一个产品方向。</p>
+                        <div class="kc-keypoint">
+                            <h4>五天流程</h4>
+                            <p><strong>周一 — 理解：</strong>明确挑战，绘制用户旅程地图，选择聚焦点。</p>
+                            <p><strong>周二 — 发散：</strong>参考竞品，每人独立产出解决方案草图。</p>
+                            <p><strong>周三 — 决策：</strong>投票选择最佳方案，绘制故事板。</p>
+                            <p><strong>周四 — 原型：</strong>快速制作可测试的高保真原型。</p>
+                            <p><strong>周五 — 测试：</strong>邀请 5 位目标用户测试原型，收集反馈。</p>
+                        </div>
+                        <p><strong>适用场景：</strong>新产品方向验证、重大功能改版、团队有分歧需要快速对齐。不适合日常小需求。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新增：用户研究 -->
+            <div class="tab-content" id="tab-meth-research">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>用户研究方法矩阵</h3><span class="kc-level">核心</span></div>
+                    <div class="kc-body">
+                        <p>用户研究方法可以按两个维度分类：定性vs定量、态度vs行为。不同阶段选择不同方法。</p>
+                        <div class="kc-keypoint">
+                            <h4>定性方法（理解"为什么"）</h4>
+                            <p><strong>用户访谈：</strong>1对1深度对话，了解用户的想法、需求和痛点。适合探索阶段。每次5-8位用户即可。</p>
+                            <p><strong>情境观察：</strong>在用户真实环境中观察他们的行为。比访谈更真实——用户说的和做的往往不一样。</p>
+                            <p><strong>焦点小组：</strong>6-8人的小组讨论。适合收集多元观点，但要警惕"从众效应"——容易被声音最大的人带节奏。</p>
+                            <p><strong>日记研究：</strong>用户在一段时间内记录自己的行为和感受。适合了解用户的长期使用习惯。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>定量方法（理解"多少"）</h4>
+                            <p><strong>问卷调查：</strong>大规模收集用户态度数据。设计好问题是关键——避免引导性问题。样本量至少100份。</p>
+                            <p><strong>A/B测试：</strong>在线上让不同用户使用不同方案，用数据比较效果。每次只测一个变量。</p>
+                            <p><strong>数据分析：</strong>分析用户行为日志（点击、停留时间、转化率）。事后分析，成本低但只能看到"什么"，不能直接看到"为什么"。</p>
+                            <p><strong>树状测试：</strong>验证信息架构是否合理——给用户一个任务，看他们在层级结构中能否找到正确位置。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>用户访谈实操指南</h3><span class="kc-level">实战</span></div>
+                    <div class="kc-body">
+                        <div class="kc-keypoint">
+                            <h4>好问题 vs 坏问题</h4>
+                            <p><strong>坏：</strong>"你喜欢这个设计吗？"（引导性+封闭式）</p>
+                            <p><strong>好：</strong>"能描述一下你使用这个功能的过程吗？"（开放式+行为导向）</p>
+                            <p><strong>坏：</strong>"如果有XX功能，你会用吗？"（假设性问题，回答不可靠）</p>
+                            <p><strong>好：</strong>"上次你遇到这个问题时，你是怎么解决的？"（真实行为）</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>TEDW 访谈框架</h4>
+                            <p><strong>T (Tell)：</strong>"能跟我说说你上次...的经历吗？"</p>
+                            <p><strong>E (Explain)：</strong>"能解释一下你为什么这么做吗？"</p>
+                            <p><strong>D (Describe)：</strong>"能描述一下当时的感受吗？"</p>
+                            <p><strong>W (Walk through)：</strong>"能带我走一遍你的操作流程吗？"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-meth-compete">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>竞品分析框架</h3><span class="kc-level">核心</span></div>
+                    <div class="kc-body">
+                        <div class="kc-keypoint">
+                            <h4>竞品选择策略</h4>
+                            <p><strong>直接竞品：</strong>和你做一样的事，争夺同一批用户。（美团 vs 饿了么）</p>
+                            <p><strong>间接竞品：</strong>满足同样的需求，但方式不同。（外卖 vs 方便面 vs 食堂）</p>
+                            <p><strong>跨行业参考：</strong>在交互模式或设计理念上有借鉴价值。（短视频的上滑浏览被多个行业借鉴）</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>分析维度</h4>
+                            <p><strong>功能维度：</strong>核心功能覆盖范围，哪些有哪些没有，功能深度。</p>
+                            <p><strong>体验维度：</strong>核心任务完成效率，交互创新点，痛点和爽点。</p>
+                            <p><strong>设计语言维度：</strong>视觉风格、品牌调性、设计一致性。</p>
+                            <p><strong>数据维度（如可获取）：</strong>市场份额、下载量、评分、用户评价。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：外卖App竞品分析要点</h4>
+                        <p>分析美团外卖 vs 饿了么时，不能只看功能清单，更要对比核心体验：首页推荐策略（猜你喜欢 vs 分类入口）、下单流程步数、等待体验（骑手追踪的信息丰富度）、异常处理（超时、缺货的处理方式）。这些体验层面的差异才是设计师最该关注的。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-meth-usability">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>可用性测试</h3><span class="kc-level">核心</span></div>
+                    <div class="kc-body">
+                        <p>可用性测试是让真实用户使用产品并观察他们遇到的问题。这是验证设计方案最直接有效的方法。</p>
+                        <div class="kc-keypoint">
+                            <h4>测试要点</h4>
+                            <p><strong>样本量：</strong>5 位用户即可发现约 85% 的可用性问题（Nielsen 研究）。</p>
+                            <p><strong>任务设计：</strong>给用户真实场景而非指令。"假设你想点一份不超过30元的午餐"比"请点击外卖按钮"好得多。</p>
+                            <p><strong>观察而非引导：</strong>用户卡住时不要提示，记录他们的真实行为。</p>
+                            <p><strong>有声思维法：</strong>请用户说出自己在想什么，帮助你理解他们的认知过程。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>SUS 量表</h4>
+                            <p>系统可用性量表（System Usability Scale）是一个快速评估工具。10 道题，用户打分后计算总分（0-100分）。68分是平均水平，80+是优秀。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>启发式评估（专家走查）</h3><span class="kc-level">方法</span></div>
+                    <div class="kc-body">
+                        <p>不需要用户参与，由 3-5 名专家基于可用性原则逐个评审界面。成本低、速度快，适合项目早期或资源有限时使用。</p>
+                        <div class="kc-keypoint">
+                            <h4>操作方法</h4>
+                            <p><strong>Step 1：</strong>选择评估框架（通常用尼尔森十原则）</p>
+                            <p><strong>Step 2：</strong>每位专家独立走查所有页面，记录违反原则的问题</p>
+                            <p><strong>Step 3：</strong>对每个问题评估严重程度（0=没问题 1=装饰性问题 2=轻微 3=重要 4=灾难性）</p>
+                            <p><strong>Step 4：</strong>汇总所有专家的发现，按严重程度排序</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新增：用户旅程与服务蓝图 -->
+            <div class="tab-content" id="tab-meth-journey">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>用户旅程地图 (User Journey Map)</h3><span class="kc-level">核心</span></div>
+                    <div class="kc-body">
+                        <p>用户旅程地图是将用户完成一个目标的完整过程可视化，包含每个阶段的行为、想法、情绪和痛点。它帮助团队从用户视角理解全链路体验。</p>
+                        <div class="kc-keypoint">
+                            <h4>旅程地图的核心要素</h4>
+                            <p><strong>用户角色：</strong>这张地图描绘的是谁？（基于用户画像）</p>
+                            <p><strong>阶段划分：</strong>用户经历了哪几个阶段？（如：发现→了解→决策→使用→复购）</p>
+                            <p><strong>行为/触点：</strong>每个阶段用户在做什么？通过什么渠道和产品互动？</p>
+                            <p><strong>想法与情绪：</strong>用户在想什么？情绪是正面还是负面？用情绪曲线可视化。</p>
+                            <p><strong>痛点与机会：</strong>哪里体验不好？哪里有改进空间？这是地图最核心的输出。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：外卖点餐旅程中的情绪波动</h4>
+                        <p><strong>开心：</strong>打开App看到喜欢的餐厅有优惠券 → <strong>焦虑：</strong>选择困难，不知道吃什么 → <strong>满足：</strong>下单成功 → <strong>焦虑：</strong>等待配送（看骑手位置缓解焦虑） → <strong>失望/开心：</strong>收到餐品，品质是否符合预期。</p>
+                        <p><strong>设计机会：</strong>在"选择困难"阶段提供智能推荐，在"等待配送"阶段丰富信息（骑手实时位置+预计到达时间），在"收到餐品"阶段引导好评。</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>服务设计蓝图 (Service Blueprint)</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <p>服务蓝图在旅程地图的基础上增加了「后台视角」——用户看得到的体验背后，需要哪些人员、系统和流程来支撑。</p>
+                        <div class="kc-keypoint">
+                            <h4>五个核心层次</h4>
+                            <p><strong>用户行为：</strong>用户做了什么（同旅程地图）</p>
+                            <p><strong>前台交互：</strong>用户能看到的服务人员/界面的行为</p>
+                            <p><strong>后台交互：</strong>用户看不到的支撑工作（如骑手调度系统）</p>
+                            <p><strong>支撑流程：</strong>让服务运转的内部流程（如商家接单系统、支付系统）</p>
+                            <p><strong>实体证据：</strong>用户在各环节接触到的实体物品（App界面、推送通知、包装袋）</p>
+                        </div>
+                        <p><strong>核心价值：</strong>帮助团队理解"端到端"体验，发现前后台之间的断裂点。比如用户看到"预计30分钟送达"，但后台商家还没开始备餐——这个断裂就是体验问题的根源。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 新增：设计度量 -->
+            <div class="tab-content" id="tab-meth-metrics">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>设计如何度量（Design Metrics）</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <p>"设计的价值很难量化"是一个常见的误区。以下是系统化度量设计效果的框架。</p>
+                        <div class="kc-keypoint">
+                            <h4>HEART 框架（Google）</h4>
+                            <p>Google 提出的用户体验度量框架，每个维度都需要定义 Goals → Signals → Metrics。</p>
+                            <p><strong>Happiness（满意度）：</strong>NPS评分、满意度调查、App Store评分。</p>
+                            <p><strong>Engagement（参与度）：</strong>人均使用时长、人均访问页数、功能使用频率。</p>
+                            <p><strong>Adoption（采纳度）：</strong>新功能使用率、新用户转化率。</p>
+                            <p><strong>Retention（留存率）：</strong>7日/30日留存、流失率。</p>
+                            <p><strong>Task Success（任务完成率）：</strong>核心任务完成率、平均完成时间、错误率。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>用OKR管理设计目标</h4>
+                            <p><strong>O (Objective)：</strong>定性的、鼓舞人心的目标。如"让新用户在首次使用时感到惊喜"</p>
+                            <p><strong>KR (Key Result)：</strong>定量的、可衡量的关键结果。如"新手引导完成率从45%提升到70%"、"首次使用后7日留存率从30%提升到40%"</p>
+                            <p><strong>设计师视角：</strong>把"做一个更好的首页"翻译成"首页核心功能CTR提升15%+用户满意度NPS从60提升到70"。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 案例：用 HEART 框架度量一次改版</h4>
+                        <p><strong>改版目标：</strong>优化美团外卖首页推荐体验</p>
+                        <p><strong>H：</strong>改版后用户满意度评分从3.8提升到4.2（5分制）</p>
+                        <p><strong>E：</strong>推荐商品的人均点击次数从2.1提升到3.5</p>
+                        <p><strong>A：</strong>"猜你喜欢"模块的曝光点击率从8%提升到12%</p>
+                        <p><strong>R：</strong>7日复访率从65%提升到68%</p>
+                        <p><strong>T：</strong>从打开App到下单完成的平均时间从4.5分钟缩短到3.2分钟</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI新范式 -->
+            <div class="tab-content" id="tab-meth-ai">
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>产品设计工程师（PDE）</h3><span class="kc-level">前沿</span></div>
+                    <div class="kc-body">
+                        <p>AI 时代，产品、设计、前端开发的边界正在模糊化。产品设计工程师（Product Design Engineer，PDE）是一种新兴的复合型角色，能够独立完成从需求洞察到代码上线的全链路交付。</p>
+                        <div class="kc-keypoint">
+                            <h4>PDE 的能力画像</h4>
+                            <p><strong>产品 Sense：</strong>理解业务目标，能够独立拆解需求，判断优先级，定义成功指标。</p>
+                            <p><strong>设计执行力：</strong>能够快速产出高质量的交互稿和视觉稿，熟悉设计系统和规范。</p>
+                            <p><strong>AI 应用能力：</strong>熟练使用 AI Coding 工具，能够将设计稿转化为可运行的代码，并完成基础的前端调试。</p>
+                            <p><strong>工程思维：</strong>理解组件化、可复用性、性能等工程概念，设计时考虑实现成本。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>传统范式 vs AI 新范式</h4>
+                            <p><strong>传统串行模式：</strong>产品提需求 → 设计出稿 → 前端实现 → 测试上线。每个环节都需要等待，沟通成本高，迭代周期长（通常 2-4 周）。</p>
+                            <p><strong>AI 新范式：</strong>PDE 独立完成需求分析 → 设计 → AI Coding → 上线，部分需求可以在 1-3 天内完成端到端交付。</p>
+                            <p><strong>适用场景：</strong>新功能快速验证、轻量级需求、原型探索。复杂的系统性需求仍需多角色协作。</p>
+                        </div>
+                    </div>
+                    <div class="kc-case">
+                        <h4>📱 美团产品设计 AI 化生产范式实践</h4>
+                        <p><strong>背景：</strong>美团设计部推动"产品设计 AI 化生产范式"试点，将设计师与产品团队融合，共同承担 PDE 职责。</p>
+                        <p><strong>目标：</strong>提效能（缩短需求到交付的链路）、建工具（沉淀 AI 友好资产和协作规范）、促转型（培养具备复合能力的产品设计工程师）。</p>
+                        <p><strong>试点流程：</strong>① 共识试点意向 → ② 共识试点名单 → ③ 共识试点详细计划 → ④ 试点启动及过程追踪（约3个月）→ ⑤ 复盘评估。</p>
+                        <p><strong>关键洞察：</strong>试点成功的关键不是工具，而是"经验驱动"向"系统驱动"的转变——将个人经验沉淀为可复用的 Skill 体系，让 AI 能够基于规则做出设计判断。</p>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>AI Coding 在设计工作流中的应用</h3><span class="kc-level">实战</span></div>
+                    <div class="kc-body">
+                        <p>AI Coding 工具（如 Cursor、GitHub Copilot、CatDesk）正在改变设计师的工作方式。了解如何在设计工作流中有效使用这些工具，是现代设计师的必备技能。</p>
+                        <div class="kc-keypoint">
+                            <h4>设计师使用 AI Coding 的典型场景</h4>
+                            <p><strong>原型快速实现：</strong>将 Figma 设计稿转化为可交互的 HTML/CSS 原型，用于用户测试或向产品/研发演示。</p>
+                            <p><strong>动效实现：</strong>描述想要的动画效果，让 AI 生成 CSS 动画或 JS 代码，无需手写复杂的动画代码。</p>
+                            <p><strong>数据可视化：</strong>快速生成图表组件，用真实数据验证设计方案。</p>
+                            <p><strong>设计稿转代码：</strong>将设计稿直接转化为前端代码，减少设计→开发的信息损耗。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>提升 AI Coding 效果的关键</h4>
+                            <p><strong>提供清晰的上下文：</strong>告诉 AI 你在做什么产品、用什么技术栈、遵循什么设计规范。上下文越清晰，生成质量越高。</p>
+                            <p><strong>分步骤拆解：</strong>不要一次性让 AI 完成所有工作，而是分步骤：先搭结构，再加样式，再加交互。</p>
+                            <p><strong>建立 Skill 体系：</strong>将常用的设计规范、组件规则、适配逻辑沉淀为 Prompt 模板（Skill），让 AI 每次都能基于规范生成，而非从零开始。</p>
+                            <p><strong>人机分工：</strong>AI 负责生成和归纳，设计师负责边界判断和质量把控。不要试图让 AI 做所有决策，也不要完全不信任 AI 的输出。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="knowledge-card">
+                    <div class="kc-header"><h3>设计工程化思维</h3><span class="kc-level">进阶</span></div>
+                    <div class="kc-body">
+                        <p>设计工程化是指用工程师的思维方式来组织和管理设计工作——强调可复用性、系统性、可验证性，而非依赖个人经验和直觉。</p>
+                        <div class="kc-keypoint">
+                            <h4>从"经验驱动"到"系统驱动"</h4>
+                            <p><strong>经验驱动的问题：</strong>设计决策依赖个人经验，难以传承，新人上手慢，同一问题在不同项目中可能有不同解法，导致产品不一致。</p>
+                            <p><strong>系统驱动的优势：</strong>将设计决策规则化、文档化，形成可复用的 Skill 体系。新人可以快速上手，AI 可以基于规则自动生成，质量更稳定。</p>
+                        </div>
+                        <div class="kc-keypoint">
+                            <h4>设计 Skill 体系的四个层次</h4>
+                            <p><strong>基础样式层：</strong>颜色、字体、间距、圆角等基础设计令牌的规范。</p>
+                            <p><strong>适配规则层：</strong>不同场景（移动端/PC端、深色/浅色模式）下的适配规则。</p>
+                            <p><strong>常见模式层：</strong>表单、列表、卡片、弹窗等常见 UI 模式的最佳实践。</p>
+                            <p><strong>问题核查层：</strong>常见设计问题的检查清单，用于 AI 生成后的质量验证。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== 题库练习 ==================== -->
+        <section class="page" id="page-quiz">
+            <h1 class="page-title">题库练习</h1>
+            <p class="page-intro">基于学习科学的练习系统——主动回忆、交错练习、间隔复习，让每一分钟学习效率最大化。</p>
+
+            <!-- 学习模式选择器 -->
+            <div class="quiz-mode-selector">
+                <div class="mode-label">学习模式</div>
+                <div class="quiz-mode-btns">
+                    <button class="quiz-mode-btn active" data-mode="standard" title="按顺序答题，答后显示解析">
+                        <span class="mode-icon">📖</span>
+                        <span class="mode-name">标准</span>
+                    </button>
+                    <button class="quiz-mode-btn" data-mode="active-recall" title="先思考，再揭示选项——主动检索强化记忆">
+                        <span class="mode-icon">🧠</span>
+                        <span class="mode-name">主动回忆</span>
+                        <span class="mode-badge">+50%记忆</span>
+                    </button>
+                    <button class="quiz-mode-btn" data-mode="interleaved" title="混合不同类别——打破假熟悉感">
+                        <span class="mode-icon">🔀</span>
+                        <span class="mode-name">交错练习</span>
+                        <span class="mode-badge">防假熟悉</span>
+                    </button>
+                    <button class="quiz-mode-btn" data-mode="review" title="只显示到期需要复习的题目">
+                        <span class="mode-icon">⏰</span>
+                        <span class="mode-name">间隔复习</span>
+                        <span class="mode-badge">遗忘边缘</span>
+                    </button>
+                </div>
+                <p class="quiz-mode-desc" id="quizModeDesc">标准模式：按顺序答题，答后立即显示解析</p>
+            </div>
+
+            <div class="quiz-controls">
+                <div class="quiz-category-selector">
+                    <button class="quiz-cat-btn active" data-category="all">全部</button>
+                    <button class="quiz-cat-btn" data-category="product">产品思维</button>
+                    <button class="quiz-cat-btn" data-category="interaction">交互设计</button>
+                    <button class="quiz-cat-btn" data-category="methodology">方法论</button>
+                    <button class="quiz-cat-btn" data-category="ix-live">直播场景</button>
+                    <button class="quiz-cat-btn" data-category="ix-bside">B端设计</button>
+                    <button class="quiz-cat-btn" data-category="meth-ai">AI新范式</button>
+                </div>
+                <div class="quiz-score" id="quizScore">
+                    <span class="score-correct" id="scoreCorrect">0</span> / <span class="score-total" id="scoreTotal">0</span> 正确
+                </div>
+            </div>
+
+            <!-- 会话统计 -->
+            <div class="session-stats-bar" id="sessionStats">
+                <span class="session-stat">⏱ 0分钟</span>
+                <span class="session-stat">✅ 0题</span>
+                <span class="session-stat">🎯 —%正确</span>
+            </div>
+
+            <!-- 间隔复习提醒 -->
+            <div class="review-reminder hidden" id="reviewReminder">
+                <span class="review-icon">🔄</span>
+                <span class="review-text"></span>
+                <button class="review-btn">开始复习</button>
+            </div>
+
+            <div class="quiz-container" id="quizContainer">
+                <!-- 题目由 JS 动态渲染 -->
+            </div>
+
+            <div class="quiz-nav">
+                <button class="btn btn-outline" id="prevQuestion" disabled>上一题</button>
+                <span class="quiz-progress" id="quizProgress">1 / 82</span>
+                <button class="btn btn-primary" id="nextQuestion">下一题</button>
+            </div>
+
+            <!-- 知识掌握度面板 -->
+            <div class="mastery-panel" id="masteryPanel">
+                <div class="mastery-panel-header">
+                    <h3>知识掌握度</h3>
+                    <button class="metacog-btn" onclick="showMetacogDashboard()">📊 学习分析</button>
+                </div>
+            </div>
+
+            <!-- 元认知仪表盘（默认隐藏） -->
+            <div class="metacog-dashboard" id="metacogDashboard" style="display:none;">
+                <!-- JS 动态渲染 -->
+            </div>
+        </section>
+
+        <!-- ==================== 前沿案例 ==================== -->
+        <section class="page" id="page-cases">
+            <h1 class="page-title">前沿案例库</h1>
+            <p class="page-intro">100+ 前沿设计案例，每个案例包含<strong>模型推理</strong>（理论框架）和<strong>数据验证</strong>（实际效果）。点击展开详情。</p>
+
+            <div class="cases-toolbar">
+                <div class="cases-search">
+                    <span class="cases-search-icon">🔍</span>
+                    <input type="text" id="caseSearchInput" placeholder="搜索案例：标题、公司、标签、关键词…" />
+                </div>
+                <div class="cases-filter-bar">
+                    <button class="case-filter-btn active" data-case-cat="all">全部</button>
+                    <button class="case-filter-btn" data-case-cat="ai-product">AI 产品设计</button>
+                    <button class="case-filter-btn" data-case-cat="spatial">空间计算</button>
+                    <button class="case-filter-btn" data-case-cat="emotion">情感计算</button>
+                    <button class="case-filter-btn" data-case-cat="behavior">行为经济学</button>
+                    <button class="case-filter-btn" data-case-cat="growth">增长实验</button>
+                    <button class="case-filter-btn" data-case-cat="frontier-ix">前沿交互</button>
+                    <button class="case-filter-btn" data-case-cat="design-system">设计系统</button>
+                    <button class="case-filter-btn" data-case-cat="accessibility">无障碍/包容</button>
+                    <button class="case-filter-btn" data-case-cat="decision">决策设计</button>
+                </div>
+            </div>
+
+            <div class="cases-stats-bar">
+                <div class="cases-stats" id="caseCountDisplay">加载中…</div>
+            </div>
+
+            <div class="cases-grid" id="casesGrid">
+                <!-- JS 动态渲染 -->
+            </div>
+        </section>
+
+        <!-- ==================== 推荐资源 ==================== -->
+        <section class="page" id="page-resources">
+            <h1 class="page-title">推荐资源</h1>
+            <p class="page-intro">精选书籍和学习资源，点击书籍卡片查看核心内容摘要与精华笔记。</p>
+
+            <div class="tabs">
+                <button class="tab active" data-tab="res-books">推荐书籍</button>
+                <button class="tab" data-tab="res-extra">拓展资源</button>
+            </div>
+
+            <div class="tab-content active" id="tab-res-books">
+                <h3 class="sub-section-title">产品方向</h3>
+                <div class="book-grid">
+                    <div class="book-card expandable" data-book="inspired">
+                        <div class="book-card-main">
+                            <div class="book-cover" style="background:linear-gradient(135deg,#667eea,#764ba2)"><span class="book-emoji">📖</span></div>
+                            <div class="book-info">
+                                <h4>启示录 <span class="expand-hint">点击展开 ▾</span></h4>
+                                <p class="book-author">Marty Cagan</p>
+                                <p class="book-desc">硅谷产品经理必读。讲述如何打造用户喜爱的产品，从产品发现到产品交付的完整流程。</p>
+                                <div class="book-tags"><span class="tag">产品发现</span><span class="tag">团队协作</span></div>
+                            </div>
+                        </div>
+                        <div class="book-detail">
+                            <div class="book-detail-inner">
+                                <h4>核心观点摘要</h4>
+                                <p><strong>产品发现的核心：</strong>在写一行代码之前，先回答四个关键问题——用户会买吗（价值风险）？用户会用吗（可用性风险）？工程师能做出来吗（可行性风险）？利益相关者支持吗（商业风险）？</p>
+                                <p><strong>产品团队 vs 功能团队：</strong>功能团队只是接需求做开发（output），产品团队负责解决问题和产出业务结果（outcome）。设计师应该争取成为产品团队的一员。</p>
+                                <p><strong>原型驱动的产品发现：</strong>用高保真原型做用户测试，而不是写PRD然后交给开发。"如果你只是在用文字描述产品，你就不是在做产品发现"。</p>
+                                <h4>精华笔记</h4>
+                                <p>1. 好产品的背后是持续的产品发现过程，而不是一次灵感闪现。</p>
+                                <p>2. 产品经理的核心职责是评估机会（而非管理项目），设计师的核心职责是让产品可用且有吸引力。</p>
+                                <p>3. "如果你只是在做利益相关者要求你做的事，那你就只是一个项目团队，不是产品团队。"</p>
+                                <h4>设计师必读章节</h4>
+                                <p>第14章「产品发现的原则」、第27章「原型的力量」、第33章「产品团队的组成」。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book-card expandable" data-book="yujun">
+                        <div class="book-card-main">
+                            <div class="book-cover" style="background:linear-gradient(135deg,#f093fb,#f5576c)"><span class="book-emoji">📖</span></div>
+                            <div class="book-info">
+                                <h4>俞军产品方法论 <span class="expand-hint">点击展开 ▾</span></h4>
+                                <p class="book-author">俞军</p>
+                                <p class="book-desc">百度前产品副总裁的方法论总结。核心框架"产品价值 = 新体验 - 旧体验 - 替换成本"。</p>
+                                <div class="book-tags"><span class="tag">产品价值</span><span class="tag">用户模型</span></div>
+                            </div>
+                        </div>
+                        <div class="book-detail">
+                            <div class="book-detail-inner">
+                                <h4>核心观点摘要</h4>
+                                <p><strong>产品价值公式：</strong>产品价值 = 新体验 - 旧体验 - 替换成本。这意味着你的新产品不仅要比旧方案好，还要好到能覆盖用户切换的成本（学习成本、数据迁移、社交关系迁移等）。</p>
+                                <p><strong>用户模型：</strong>用户不是"人"，而是"需求的集合"。同一个人在不同场景下是不同的"用户"。早上赶地铁的你和周末在家的你，对同一个App的需求完全不同。</p>
+                                <p><strong>交易模型：</strong>每次用户使用产品都是一次"交易"——用户付出时间/注意力/金钱，获得功能/内容/服务。产品经理的本质工作是让这个交易对双方都划算。</p>
+                                <h4>精华笔记</h4>
+                                <p>1. 判断一个需求是否值得做，先算"产品价值 = 新体验 - 旧体验 - 替换成本"，如果结果为负，再好的设计也救不了。</p>
+                                <p>2. 理解用户不是理解"这个人是什么样的"，而是理解"这个人在这个场景下的需求是什么"。</p>
+                                <p>3. 警惕"替换成本"——微信的护城河不是功能多好，而是你所有社交关系都在上面。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book-card expandable" data-book="ux-elements">
+                        <div class="book-card-main">
+                            <div class="book-cover" style="background:linear-gradient(135deg,#4facfe,#00f2fe)"><span class="book-emoji">📖</span></div>
+                            <div class="book-info">
+                                <h4>用户体验要素 <span class="expand-hint">点击展开 ▾</span></h4>
+                                <p class="book-author">Jesse James Garrett</p>
+                                <p class="book-desc">经典的五层模型（战略层→范围层→结构层→框架层→表现层），体验设计的系统思维。</p>
+                                <div class="book-tags"><span class="tag">体验模型</span><span class="tag">入门必读</span></div>
+                            </div>
+                        </div>
+                        <div class="book-detail">
+                            <div class="book-detail-inner">
+                                <h4>核心观点摘要</h4>
+                                <p><strong>五层模型：</strong>战略层（为什么做？目标用户和产品目标）→ 范围层（做什么？功能和内容需求）→ 结构层（怎么组织？信息架构和交互设计）→ 框架层（怎么布局？页面布局、导航、信息设计）→ 表现层（怎么看？视觉设计）。</p>
+                                <p><strong>核心启示：</strong>设计不只是最上面的表现层。每一层都会影响上一层，战略层的决策错误会导致后面所有层次的努力白费。设计师应该参与战略层的讨论，而非只在表现层发力。</p>
+                                <h4>设计师必读章节</h4>
+                                <p>第2章「用户体验的要素」、第5章「结构层」（信息架构和交互设计的关系）、第6章「框架层」（界面设计的核心原则）。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book-card expandable" data-book="lean-startup">
+                        <div class="book-card-main">
+                            <div class="book-cover" style="background:linear-gradient(135deg,#a8edea,#fed6e3)"><span class="book-emoji">📖</span></div>
+                            <div class="book-info">
+                                <h4>精益创业 <span class="expand-hint">点击展开 ▾</span></h4>
+                                <p class="book-author">Eric Ries</p>
+                                <p class="book-desc">MVP 方法论的源头。"开发→测量→学习"的循环，互联网产品快速迭代的底层逻辑。</p>
+                                <div class="book-tags"><span class="tag">MVP</span><span class="tag">迭代思维</span></div>
+                            </div>
+                        </div>
+                        <div class="book-detail">
+                            <div class="book-detail-inner">
+                                <h4>核心观点摘要</h4>
+                                <p><strong>BML循环：</strong>Build（开发最小版本）→ Measure（用数据测量效果）→ Learn（从数据中学习并调整方向）。这个循环越快，产品成功的概率越高。</p>
+                                <p><strong>关键转向 (Pivot)：</strong>当数据证明当前方向不对时，果断调整策略。Instagram 原本是一个叫 Burbn 的签到App，数据发现用户只用照片分享功能，于是 Pivot 成了 Instagram。</p>
+                                <h4>精华笔记</h4>
+                                <p>1. 做产品最大的浪费不是做错了，而是做了一个没人要的东西。MVP就是为了避免这种浪费。</p>
+                                <p>2. "如果你不为你的第一版产品感到羞耻，那你推出得太晚了。"——LinkedIn创始人 Reid Hoffman</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="sub-section-title">交互设计方向</h3>
+                <div class="book-grid">
+                    <div class="book-card expandable" data-book="about-face">
+                        <div class="book-card-main">
+                            <div class="book-cover" style="background:linear-gradient(135deg,#ffecd2,#fcb69f)"><span class="book-emoji">📘</span></div>
+                            <div class="book-info">
+                                <h4>About Face 4 <span class="expand-hint">点击展开 ▾</span></h4>
+                                <p class="book-author">Alan Cooper 等</p>
+                                <p class="book-desc">交互设计领域的"圣经"。从设计原则到具体模式都有深入讨论。</p>
+                                <div class="book-tags"><span class="tag">交互圣经</span><span class="tag">设计模式</span></div>
+                            </div>
+                        </div>
+                        <div class="book-detail">
+                            <div class="book-detail-inner">
+                                <h4>核心观点摘要</h4>
+                                <p><strong>目标导向设计 (Goal-Directed Design)：</strong>设计应该从用户的目标出发，而非从功能列表出发。用户不想"管理文件"，他们想"快速找到那个文档"。</p>
+                                <p><strong>人物角色 (Persona)：</strong>Cooper 是 Persona 方法的发明者。通过构建详细的用户角色来指导设计决策，避免为"弹性用户"设计。</p>
+                                <p><strong>交互设计模式：</strong>对常见交互问题的经典解决方案，如"渐进披露""向导模式""直接操作"等。</p>
+                                <h4>设计师必读章节</h4>
+                                <p>第1部分「目标导向设计」（理解方法论）、第11章「消除附加工作」（减少用户认知负荷）、第17-18章「移动端与桌面端设计模式」。内容很厚，建议按需查阅而非通读。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book-card expandable" data-book="dont-make-me-think">
+                        <div class="book-card-main">
+                            <div class="book-cover" style="background:linear-gradient(135deg,#fbc2eb,#a6c1ee)"><span class="book-emoji">📘</span></div>
+                            <div class="book-info">
+                                <h4>Don't Make Me Think <span class="expand-hint">点击展开 ▾</span></h4>
+                                <p class="book-author">Steve Krug</p>
+                                <p class="book-desc">Web 可用性经典之作，轻松易读。核心思想——别让用户思考。</p>
+                                <div class="book-tags"><span class="tag">可用性</span><span class="tag">轻松易读</span></div>
+                            </div>
+                        </div>
+                        <div class="book-detail">
+                            <div class="book-detail-inner">
+                                <h4>核心观点摘要</h4>
+                                <p><strong>第一定律——别让我思考：</strong>一个页面应该是不言而喻的。用户不应该花精力去弄清楚"这个能点吗""这个链接去哪里""这是什么意思"。</p>
+                                <p><strong>用户不阅读，他们扫视：</strong>用户不会逐字阅读网页内容，而是快速扫描寻找感兴趣的关键词。设计要为扫描优化：清晰的标题层级、视觉焦点、可扫描的列表。</p>
+                                <p><strong>用户不做最佳选择，他们满意即可：</strong>用户不会仔细比较所有选项选最优，而是找到一个"看起来不错"的就点了。</p>
+                                <h4>精华笔记</h4>
+                                <p>1. "如果你想要一个好网站，测试它。"——不要争论，做可用性测试。</p>
+                                <p>2. 可用性的终极目标不是"我能找到"，而是"我不需要找就能看到"。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book-card expandable" data-book="design-psychology">
+                        <div class="book-card-main">
+                            <div class="book-cover" style="background:linear-gradient(135deg,#d4fc79,#96e6a1)"><span class="book-emoji">📘</span></div>
+                            <div class="book-info">
+                                <h4>设计心理学 <span class="expand-hint">点击展开 ▾</span></h4>
+                                <p class="book-author">Donald Norman</p>
+                                <p class="book-desc">四册系列，第一册《日常的设计》最经典。交互设计的心理学基础。</p>
+                                <div class="book-tags"><span class="tag">设计心理学</span><span class="tag">经典</span></div>
+                            </div>
+                        </div>
+                        <div class="book-detail">
+                            <div class="book-detail-inner">
+                                <h4>核心观点摘要</h4>
+                                <p><strong>可供性 (Affordance)：</strong>物品的属性暗示了它的使用方式。门把手的形状暗示"拉"还是"推"，按钮的凸起暗示"可以按"。好的设计让使用方式不言自明。</p>
+                                <p><strong>映射 (Mapping)：</strong>控制和结果之间的对应关系。灶台旋钮和火孔的位置关系应该直观对应，否则用户每次都要猜"这个旋钮控制哪个火"。</p>
+                                <p><strong>反馈 (Feedback)：</strong>操作的结果应该立即被感知。按电梯按钮后灯亮了（知道已按下），拨电话时有嘟嘟声（知道正在接通）。</p>
+                                <p><strong>概念模型：</strong>用户对产品如何工作的心理模型。设计应匹配用户已有的概念模型，而非要求用户学习新的。</p>
+                                <h4>精华笔记</h4>
+                                <p>1. "如果一个设计需要说明书才能使用，那就是设计的失败。"</p>
+                                <p>2. 不是用户笨，是设计没做好。当用户犯错时，先反思设计是否有问题。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book-card expandable" data-book="micro-interactions">
+                        <div class="book-card-main">
+                            <div class="book-cover" style="background:linear-gradient(135deg,#89f7fe,#66a6ff)"><span class="book-emoji">📘</span></div>
+                            <div class="book-info">
+                                <h4>微交互 <span class="expand-hint">点击展开 ▾</span></h4>
+                                <p class="book-author">Dan Saffer</p>
+                                <p class="book-desc">专注于产品中的细节交互设计。触发器、规则、反馈、循环四要素框架。</p>
+                                <div class="book-tags"><span class="tag">微交互</span><span class="tag">细节设计</span></div>
+                            </div>
+                        </div>
+                        <div class="book-detail">
+                            <div class="book-detail-inner">
+                                <h4>核心观点摘要</h4>
+                                <p><strong>微交互四要素：</strong>Trigger（触发器：什么启动了它？） → Rules（规则：它怎么运作？） → Feedback（反馈：用户怎么知道发生了什么？） → Loops & Modes（循环与模式：重复使用时会变化吗？）</p>
+                                <p><strong>核心理念：</strong>产品的"灵魂"藏在微交互里。两个功能相同的App，一个有精心设计的微交互（按钮按下的触感反馈、点赞的弹跳动画、下拉刷新的趣味动效），另一个没有——用户会觉得前者"更好用"，虽然他们说不出为什么。</p>
+                                <h4>精华笔记</h4>
+                                <p>1. 每一个微交互都应该只做一件事，把这件事做到极致。</p>
+                                <p>2. 最好的微交互是用户感觉不到的——它们自然到成为了体验的一部分。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="sub-section-title">综合提升</h3>
+                <div class="book-grid">
+                    <div class="book-card expandable" data-book="simple">
+                        <div class="book-card-main">
+                            <div class="book-cover" style="background:linear-gradient(135deg,#c3cfe2,#f5f7fa)"><span class="book-emoji">📗</span></div>
+                            <div class="book-info">
+                                <h4>简约至上 <span class="expand-hint">点击展开 ▾</span></h4>
+                                <p class="book-author">Giles Colborne</p>
+                                <p class="book-desc">如何做减法。四个简化策略：删除、组织、隐藏、转移。</p>
+                                <div class="book-tags"><span class="tag">简约设计</span><span class="tag">快速阅读</span></div>
+                            </div>
+                        </div>
+                        <div class="book-detail">
+                            <div class="book-detail-inner">
+                                <h4>四大简化策略</h4>
+                                <p><strong>删除：</strong>去掉不必要的功能和信息。"如果一个功能只有5%的用户使用，值得为它增加界面复杂度吗？"</p>
+                                <p><strong>组织：</strong>把相关的东西放在一起，用分组和层级让信息有条理。</p>
+                                <p><strong>隐藏：</strong>不常用的功能隐藏起来，但能找到。如"高级设置"。</p>
+                                <p><strong>转移：</strong>把复杂性转移给其他设备/系统/用户。如打印设置的大部分选项可以在电脑上完成（而非打印机面板上操作）。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book-card expandable" data-book="hooked">
+                        <div class="book-card-main">
+                            <div class="book-cover" style="background:linear-gradient(135deg,#e0c3fc,#8ec5fc)"><span class="book-emoji">📗</span></div>
+                            <div class="book-info">
+                                <h4>上瘾 <span class="expand-hint">点击展开 ▾</span></h4>
+                                <p class="book-author">Nir Eyal</p>
+                                <p class="book-desc">Hook 模型：触发→行动→多变的酬赏→投入。理解产品如何让用户形成使用习惯。</p>
+                                <div class="book-tags"><span class="tag">习惯养成</span><span class="tag">行为设计</span></div>
+                            </div>
+                        </div>
+                        <div class="book-detail">
+                            <div class="book-detail-inner">
+                                <h4>Hook 模型四阶段</h4>
+                                <p><strong>触发 (Trigger)：</strong>外部触发（推送通知、朋友分享）和内部触发（无聊→打开抖音，焦虑→刷新闻）。产品最终要形成内部触发。</p>
+                                <p><strong>行动 (Action)：</strong>用户采取的最简单操作。动机+能力+触发器三者缺一不可（Fogg行为模型）。</p>
+                                <p><strong>多变的酬赏 (Variable Reward)：</strong>不确定性是上瘾的关键。抖音每次下滑看到的内容都不一样——这种"不知道下一个是什么"的不确定性让人停不下来。</p>
+                                <p><strong>投入 (Investment)：</strong>用户付出越多越不舍得离开。关注列表、收藏内容、个性化设置——这些都是"投入"。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book-card expandable" data-book="sprint">
+                        <div class="book-card-main">
+                            <div class="book-cover" style="background:linear-gradient(135deg,#fdfcfb,#e2d1c3)"><span class="book-emoji">📗</span></div>
+                            <div class="book-info">
+                                <h4>设计冲刺 <span class="expand-hint">点击展开 ▾</span></h4>
+                                <p class="book-author">Jake Knapp</p>
+                                <p class="book-desc">Google Ventures 的 Design Sprint 方法论详解。5天内从问题到用户验证。</p>
+                                <div class="book-tags"><span class="tag">方法论</span><span class="tag">实操</span></div>
+                            </div>
+                        </div>
+                        <div class="book-detail">
+                            <div class="book-detail-inner">
+                                <h4>核心观点摘要</h4>
+                                <p><strong>为什么5天？</strong>足够长以深入一个问题，又足够短以保持紧迫感和专注。超过一周团队就会开始分心。</p>
+                                <p><strong>决策者必须在场：</strong>Sprint 的"决策者"（通常是CEO/产品负责人）必须全程参与，否则最后的决定没人能拍板。</p>
+                                <p><strong>Storyboard 是关键：</strong>周三的故事板环节是连接"概念"和"原型"的桥梁——把抽象想法变成具体的用户操作流程。</p>
+                                <h4>精华笔记</h4>
+                                <p>1. "不要追求共识，追求测试。"——团队有分歧时不要争论，做出原型让用户说话。</p>
+                                <p>2. 5位测试用户就够了。不是因为5个人的意见有统计学意义，而是因为5个人的反馈足以暴露最大的问题。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book-card expandable" data-book="emotional-design">
+                        <div class="book-card-main">
+                            <div class="book-cover" style="background:linear-gradient(135deg,#ff9a9e,#fecfef)"><span class="book-emoji">📗</span></div>
+                            <div class="book-info">
+                                <h4>情感化设计 <span class="expand-hint">点击展开 ▾</span></h4>
+                                <p class="book-author">Donald Norman</p>
+                                <p class="book-desc">设计的三个层次：本能层、行为层、反思层。从好用到让人爱用的设计哲学。</p>
+                                <div class="book-tags"><span class="tag">情感设计</span><span class="tag">设计哲学</span></div>
+                            </div>
+                        </div>
+                        <div class="book-detail">
+                            <div class="book-detail-inner">
+                                <h4>核心观点摘要</h4>
+                                <p><strong>好看的东西更好用：</strong>Norman 的研究发现，当用户面对美观的界面时，会更有耐心、更愿意探索、更容易原谅小问题。情绪积极时，认知能力也更灵活。</p>
+                                <p><strong>三层次框架应用：</strong>本能层决定用户第一印象（"想不想用"），行为层决定使用体验（"好不好用"），反思层决定长期忠诚（"用这个产品的我是什么样的人"）。设计应该在三个层次上同时发力。</p>
+                                <h4>精华笔记</h4>
+                                <p>1. "有吸引力的产品确实比不那么有吸引力的产品更好用"——这不是视觉设计师的自我安慰，而是有实验数据支撑的结论。</p>
+                                <p>2. 情感化设计不是加几个可爱的插画，而是在正确的时刻给用户正确的情绪体验。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab-res-extra">
+                <div class="resource-section">
+                    <h3 class="sub-section-title">设计规范文档</h3>
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <span class="resource-icon">📐</span>
+                            <div class="resource-info">
+                                <h4>Material Design 3 (Google)</h4>
+                                <p>Google 的设计系统，组件库极其丰富，交互规范详尽。学习组件设计规范的最佳参考。</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">🍎</span>
+                            <div class="resource-info">
+                                <h4>Human Interface Guidelines (Apple)</h4>
+                                <p>苹果的设计指南，对 iOS/macOS 平台特性的交互规范讲解最权威。理解平台差异的必读。</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">🐜</span>
+                            <div class="resource-info">
+                                <h4>Ant Design 设计语言</h4>
+                                <p>蚂蚁集团的设计体系，中文友好，对 B 端设计模式有深入总结。适合做后台/中台产品的参考。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-section">
+                    <h3 class="sub-section-title">优质学习渠道</h3>
+                    <div class="resource-list">
+                        <div class="resource-item">
+                            <span class="resource-icon">✍️</span>
+                            <div class="resource-info">
+                                <h4>Nielsen Norman Group (NN/g)</h4>
+                                <p>全球最权威的用户体验研究机构。每周发布高质量 UX 研究文章，是交互设计知识的"源头活水"。</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">📱</span>
+                            <div class="resource-info">
+                                <h4>Mobbin</h4>
+                                <p>海量 App 设计模式截图库，按功能场景分类。做竞品分析和找设计灵感的利器。</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">🎓</span>
+                            <div class="resource-info">
+                                <h4>Interaction Design Foundation</h4>
+                                <p>系统性的交互设计在线课程，学术和实践结合得好，适合系统学习。</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">📚</span>
+                            <div class="resource-info">
+                                <h4>Laws of UX</h4>
+                                <p>Jon Yablonski 创建的 UX 设计定律合集网站，把交互设计相关的心理学定律用精美的视觉化方式呈现，非常适合速查。</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">📝</span>
+                            <div class="resource-info">
+                                <h4>人人都是产品经理（woshipm.com）</h4>
+                                <p>国内最大的产品经理社区，有大量产品分析、方法论文章。适合了解国内产品设计的思路和案例。</p>
+                            </div>
+                        </div>
+                        <div class="resource-item">
+                            <span class="resource-icon">🎙️</span>
+                            <div class="resource-info">
+                                <h4>UX Coffee 播客</h4>
+                                <p>中文 UX 播客，邀请各大厂设计师分享经验。通勤路上听很合适，轻松了解行业动态和设计思考。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="cases.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
